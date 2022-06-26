@@ -17,37 +17,40 @@ public class SwerveMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (GameManager.instance.isContinue==true)
         {
-            // oyunu baþlatýyoruz.. karakter ileri hareket etmeye baþlýyor..
-            if (!GameManager.instance.isContinue ) {
-               
-            }
-            
-            lastMousePosX = Input.mousePosition.x;
-        }
-        else if (Input.GetMouseButton(0))
-        {
-            deltaPos = Input.mousePosition.x - lastMousePosX;
-            lastMousePosX = Input.mousePosition.x;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            deltaPos = 0;
-        }
-
-        var swerve = Time.deltaTime * swerveSpeed * deltaPos;
-        swerve = Mathf.Clamp(swerve, -maxSwerveAmount, maxSwerveAmount);
-
-        var x = transform.position.x + swerve;
-        if (x < maxHorizontalDistance && x > -maxHorizontalDistance)
-            if (checkDistanceChange)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (Mathf.Abs(x - lastPositonChange) < maxHorizontalChange) transform.Translate(swerve, 0, 0);
-            }
-            else
-                transform.Translate(swerve, 0, 0);
+                // oyunu baþlatýyoruz.. karakter ileri hareket etmeye baþlýyor..
+                //if (!GameManager.instance.isContinue ) {
 
-        lastPositonChange = x;
+                //}
+
+                lastMousePosX = Input.mousePosition.x;
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                deltaPos = Input.mousePosition.x - lastMousePosX;
+                lastMousePosX = Input.mousePosition.x;
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                deltaPos = 0;
+            }
+
+            var swerve = Time.deltaTime * swerveSpeed * deltaPos;
+            swerve = Mathf.Clamp(swerve, -maxSwerveAmount, maxSwerveAmount);
+
+            var x = transform.position.x + swerve;
+            if (x < maxHorizontalDistance && x > -maxHorizontalDistance)
+                if (checkDistanceChange)
+                {
+                    if (Mathf.Abs(x - lastPositonChange) < maxHorizontalChange) transform.Translate(swerve, 0, 0);
+                }
+                else
+                    transform.Translate(swerve, 0, 0);
+
+            lastPositonChange = x;
+        }
     }
 }

@@ -20,14 +20,17 @@ public class PlayerController : MonoBehaviour
             // score islemleri.. animasyon.. efect.. collectiblen destroy edilmesi.. 
             //Debug.Log("collectible");
             //GameManager.instance.IncreaseScore();
+            RoketManager.instance.maxgaz += 5;
+            Debug.Log("çarptý");
 
         }
         else if (other.CompareTag("obstacle"))
         {
             // score islemleri.. animasyon.. efect.. obstaclein destroy edilmesi.. 
             // oyun bitebilir bunun kontrolu de burada yapilabilir..
-            Debug.Log("obstacle");
-            GameManager.instance.DecreaseScore();
+            //Debug.Log("obstacle");
+            //GameManager.instance.DecreaseScore();
+            RoketManager.instance.maxgaz -= 5;
         }
         else if (other.CompareTag("finish"))
         {

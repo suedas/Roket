@@ -16,7 +16,7 @@ public class UiController : MonoBehaviour
 	#endregion
 
 	public GameObject winPanel, gamePanel, losePanel,tapToStartPanel,incrementPanel;
-	public TextMeshProUGUI scoreText,levelText,levelGaz,levelHiz,paraGaz,paraHiz,levelMesafe,paraMesafe;
+	public TextMeshProUGUI scoreText,levelText,levelGaz,levelHiz,paraGaz,paraHiz,levelMesafe,paraMesafe,totalGaz,totalHiz,totalMesafe;
 	public Button gazButton, hizButton, mesafeButton;
 
 	private void Start()
@@ -28,6 +28,7 @@ public class UiController : MonoBehaviour
             {
 				RoketManager.instance.maxgaz = 100;
             }
+			totalGaz.text = "Gaz " + PlayerPrefs.GetFloat("gaz");
 			levelGaz.text="Level  "+PlayerPrefs.GetInt("levelgaz").ToString();
 			paraGaz.text="Para  "+PlayerPrefs.GetInt("gazpara").ToString();
         }
@@ -38,6 +39,7 @@ public class UiController : MonoBehaviour
 			{
 				RoketManager.instance.hiz =0;
 			}
+			totalHiz.text = "Hýz  " + PlayerPrefs.GetFloat("hiz");
 			levelHiz.text = "Level  " + PlayerPrefs.GetInt("levelhiz");
 			paraHiz.text = "Para  " + PlayerPrefs.GetInt("hizpara");
         }
@@ -48,6 +50,7 @@ public class UiController : MonoBehaviour
 			{
 				RoketManager.instance.maxMesafe = 1;
 			}
+			totalMesafe.text = "Mesafe  " + PlayerPrefs.GetFloat("mesafe")+"x";
 			levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel");
 			paraMesafe.text = "Para  " + PlayerPrefs.GetInt("mesafepara");
         }
@@ -135,7 +138,7 @@ public class UiController : MonoBehaviour
 			PlayerPrefs.SetInt("levelgaz", RoketManager.instance.levelGaz);
 			PlayerPrefs.SetInt("gazpara", RoketManager.instance.gazPara);
 
-
+			totalGaz.text = "Gaz  " + RoketManager.instance.maxgaz;
 			levelGaz.text = "Level  " + RoketManager.instance.levelGaz;
 			paraGaz.text = "Para  " + RoketManager.instance.gazPara;
 			GameManager.instance.DecreaseScore();
@@ -160,6 +163,7 @@ public class UiController : MonoBehaviour
 			PlayerPrefs.SetInt("levelhiz", RoketManager.instance.levelHiz);
 			PlayerPrefs.SetInt("hizpara", RoketManager.instance.hizPara);
 
+			totalHiz.text = "Hýz  " + RoketManager.instance.hiz;
 			levelHiz.text = "Level  " + RoketManager.instance.levelHiz.ToString();
 			paraHiz.text = "Para  " + RoketManager.instance.hizPara.ToString();
 		}
@@ -181,6 +185,7 @@ public class UiController : MonoBehaviour
 		PlayerPrefs.SetInt("mesafelevel", RoketManager.instance.mesafeLevel);
 		PlayerPrefs.SetInt("mesafepara", RoketManager.instance.mesafePara);
 
+		totalMesafe.text = "Mesafe  "+RoketManager.instance.maxMesafe.ToString()+"x";
 		levelMesafe.text = "Level  " + RoketManager.instance.mesafeLevel.ToString();
 		paraMesafe.text = "Para  " + RoketManager.instance.mesafePara.ToString();
 

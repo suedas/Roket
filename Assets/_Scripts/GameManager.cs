@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-        //isContinue = true;	
+
+		SpawnManger.instance.spawn();
+		isContinue = false;	
         if (score==0)
         {
 			score = 1000;
