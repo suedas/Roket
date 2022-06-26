@@ -17,34 +17,47 @@ public class UiController : MonoBehaviour
 
 	public GameObject winPanel, gamePanel, losePanel,tapToStartPanel,incrementPanel;
 	public TextMeshProUGUI scoreText,levelText,levelGaz,levelHiz,paraGaz,paraHiz,levelMesafe,paraMesafe;
+	public Button gazButton, hizButton, mesafeButton;
 
 	private void Start()
 	{
+        if (PlayerPrefs.HasKey("gaz"))
+        {
+			RoketManager.instance.maxgaz= PlayerPrefs.GetFloat("gaz");
+            if (RoketManager.instance.maxgaz==0)
+            {
+				RoketManager.instance.maxgaz = 100;
+            }
+			levelGaz.text="Level  "+PlayerPrefs.GetInt("levelgaz").ToString();
+			paraGaz.text="Para  "+PlayerPrefs.GetInt("gazpara").ToString();
+        }
+        if (PlayerPrefs.HasKey("hiz"))
+		{
+			RoketManager.instance.hiz= PlayerPrefs.GetFloat("hiz");
+			if (RoketManager.instance.hiz == 0)
+			{
+				RoketManager.instance.hiz =0;
+			}
+			levelHiz.text = "Level  " + PlayerPrefs.GetInt("levelhiz");
+			paraHiz.text = "Para  " + PlayerPrefs.GetInt("hizpara");
+        }
+        if (PlayerPrefs.HasKey("mesafe"))
+        {
+			RoketManager.instance.maxMesafe= PlayerPrefs.GetFloat("mesafe");
+			if (RoketManager.instance.maxMesafe == 0)
+			{
+				RoketManager.instance.maxMesafe = 1;
+			}
+			levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel");
+			paraMesafe.text = "Para  " + PlayerPrefs.GetInt("mesafepara");
+        }
+ 
 		gamePanel.SetActive(true);
 		tapToStartPanel.SetActive(true);
 		winPanel.SetActive(false);
 		losePanel.SetActive(false);
 		scoreText.text = PlayerPrefs.GetInt("score").ToString();
 		levelText.text = "LEVEL " + LevelController.instance.totalLevelNo.ToString();
-        if (PlayerPrefs.HasKey("gaz"))
-        {
-			
-			PlayerPrefs.GetFloat("gaz");
-			levelGaz.text="Level  "+PlayerPrefs.GetInt("levelgaz").ToString();
-			paraGaz.text="Para  "+PlayerPrefs.GetInt("gazpara").ToString();
-        }
-        if (PlayerPrefs.HasKey("hiz"))
-        {
-			PlayerPrefs.GetFloat("hiz");
-			levelHiz.text = "Level  " + PlayerPrefs.GetInt("levelhiz");
-			paraHiz.text = "Para  " + PlayerPrefs.GetInt("hizpara");
-        }
-        if (PlayerPrefs.HasKey("mesafe"))
-        {
-			PlayerPrefs.GetInt("mesafe");
-			levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel");
-			paraMesafe.text = "Para  " + PlayerPrefs.GetInt("mesafepara");
-        }
 	}
 	
 	public void NextLevelButtonClick()
@@ -111,45 +124,71 @@ public class UiController : MonoBehaviour
 	}
 	public void gaz() 
 	{
-	
+        if (GameManager.instance.score>RoketManager.instance.gazPara)
+        {
+			RoketManager.instance.maxgaz += 10;
+			RoketManager.instance.levelGaz = PlayerPrefs.GetInt("levelgaz") +1;
+			RoketManager.instance.gazPara =PlayerPrefs.GetInt("gazpara")+50;
+			GameManager.instance.scoreArtisMiktari = RoketManager.instance.gazPara;
 
-		RoketManager.instance.maxgaz += 10;
-		RoketManager.instance.levelGaz = PlayerPrefs.GetInt("levelgaz") +1;
-		RoketManager.instance.gazPara =PlayerPrefs.GetInt("gazpara")+50;
+			PlayerPrefs.SetFloat("gaz", RoketManager.instance.maxgaz);
+			PlayerPrefs.SetInt("levelgaz", RoketManager.instance.levelGaz);
+			PlayerPrefs.SetInt("gazpara", RoketManager.instance.gazPara);
 
-		PlayerPrefs.SetFloat("gaz", RoketManager.instance.maxgaz);
-		PlayerPrefs.SetInt("levelgaz", RoketManager.instance.levelGaz);
-		PlayerPrefs.SetInt("gazpara", RoketManager.instance.gazPara);
 
-		levelGaz.text = "Level  " + RoketManager.instance.levelGaz;
-        paraGaz.text = "Para  " + RoketManager.instance.gazPara;
+			levelGaz.text = "Level  " + RoketManager.instance.levelGaz;
+			paraGaz.text = "Para  " + RoketManager.instance.gazPara;
+			GameManager.instance.DecreaseScore();
+
+        }
+        else
+        {
+			gazButton.interactable = false;
+        }
+
     }
 	public void hiz()
     {
-		RoketManager.instance.hiz += 1;
-	    RoketManager.instance.levelHiz = PlayerPrefs.GetInt("levelhiz")+ 1;
-		RoketManager.instance.hizPara = PlayerPrefs.GetInt("hizpara")+ 50;
+		if (GameManager.instance.score > RoketManager.instance.hizPara)
+		{
+			RoketManager.instance.hiz += 1;
+			RoketManager.instance.levelHiz = PlayerPrefs.GetInt("levelhiz") + 1;
+			RoketManager.instance.hizPara = PlayerPrefs.GetInt("hizpara") + 50;
 
 
-		PlayerPrefs.SetFloat("hiz", RoketManager.instance.hiz);
-		PlayerPrefs.SetInt("levelhiz", RoketManager.instance.levelHiz);
-		PlayerPrefs.SetInt("hizpara", RoketManager.instance.hizPara);
+			PlayerPrefs.SetFloat("hiz", RoketManager.instance.hiz);
+			PlayerPrefs.SetInt("levelhiz", RoketManager.instance.levelHiz);
+			PlayerPrefs.SetInt("hizpara", RoketManager.instance.hizPara);
 
-		levelHiz.text = "Level  " +RoketManager.instance.levelHiz.ToString();
-		paraHiz.text = "Para  " + RoketManager.instance.hizPara.ToString();
+			levelHiz.text = "Level  " + RoketManager.instance.levelHiz.ToString();
+			paraHiz.text = "Para  " + RoketManager.instance.hizPara.ToString();
+		}
+        else
+        {
+			hizButton.interactable = false;
+        }
 	}
 	public void mesafe()
     {
-		RoketManager.instance.mesafe += 2;
+        if (GameManager.instance.score>RoketManager.instance.mesafePara)
+        {
+		RoketManager.instance.maxMesafe += 1;
+		//RoketManager.instance.mesafe += 2;
 		RoketManager.instance.mesafeLevel = PlayerPrefs.GetInt("mesafelevel")+1;
 		RoketManager.instance.mesafePara = PlayerPrefs.GetInt("mesafepara")+50;
 
-		PlayerPrefs.SetInt("mesafe", RoketManager.instance.mesafe);
+		PlayerPrefs.SetFloat("mesafe", RoketManager.instance.maxMesafe);
 		PlayerPrefs.SetInt("mesafelevel", RoketManager.instance.mesafeLevel);
 		PlayerPrefs.SetInt("mesafepara", RoketManager.instance.mesafePara);
 
 		levelMesafe.text = "Level  " + RoketManager.instance.mesafeLevel.ToString();
 		paraMesafe.text = "Para  " + RoketManager.instance.mesafePara.ToString();
+
+        }
+        else
+        {
+			mesafeButton.interactable = false;
+        }
 
 
     }

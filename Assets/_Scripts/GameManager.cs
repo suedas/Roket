@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +21,13 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-		//isContinue = true;
+        //isContinue = true;	
+        if (score==0)
+        {
+			score = 1000;
+			PlayerPrefs.SetInt("score", score);
+			Debug.Log(score);
+        }	
 		score = PlayerPrefs.GetInt("score");
 	}
 
@@ -31,11 +38,20 @@ public class GameManager : MonoBehaviour
 	/// Farkli sekilde kullanmak icin developer kendisi fonksiyonu modifiye etmelidir.
 	/// </summary>
 	public void IncreaseScore()
-	{
-		score += scoreArtisMiktari;
-		levelScore += scoreArtisMiktari;
-		PlayerPrefs.SetInt("score", score);
-		UiController.instance.SetScoreText();
+    {
+        if (score>0)
+        {
+			scoreArtisMiktari = (int)(Convert.ToInt32(RoketManager.instance.mesafe) * RoketManager.instance.maxMesafe);
+			score += scoreArtisMiktari;
+			levelScore += scoreArtisMiktari;
+			PlayerPrefs.SetInt("score", score);
+			UiController.instance.SetScoreText();
+		}
+        else
+        {
+			score = 0;
+        }
+	
 	}
 
 
@@ -45,10 +61,18 @@ public class GameManager : MonoBehaviour
 	/// Farkli sekilde kullanmak icin developer kendisi fonksiyonu modifiye etmelidir.
 	/// </summary>
 	public void DecreaseScore()
-	{
+    {
+        if (score>0)
+        {
 		score -= scoreArtisMiktari;
 		levelScore -= scoreArtisMiktari;
 		PlayerPrefs.SetInt("score", score);
 		UiController.instance.SetScoreText();
+
+        }
+        else
+        {
+			score = 0;
+        }
 	}
 }

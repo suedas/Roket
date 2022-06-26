@@ -22,7 +22,8 @@ public class RoketManager : MonoBehaviour
     public int levelHiz = 1;
     public int hizPara = 50;
     public float maxhiz = 10;
-    public int mesafe=3;
+    public float mesafe;
+    public float maxMesafe=1;
     public int mesafeLevel;
     public int mesafePara;
     public Rigidbody rb;
@@ -45,12 +46,17 @@ public class RoketManager : MonoBehaviour
                     hiz -= 0.5f;
                 }
                 gaz += 1;
-                Debug.Log(hiz);
                 rb.velocity = new Vector3(transform.position.x, hiz, transform.position.z);                
                 yield return new WaitForEndOfFrame();
             }
+            mesafe = transform.position.y;
+            Debug.Log(mesafe);
+            GameManager.instance.IncreaseScore();
+            yield return new WaitForSeconds(.2f);
+            
             rb.useGravity = true;
             cb.enabled = false;
+            
         }
 
     }

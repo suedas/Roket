@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("collectible"))
         {
             // score islemleri.. animasyon.. efect.. collectiblen destroy edilmesi.. 
-            Debug.Log("collectible");
-            GameManager.instance.IncreaseScore();
+            //Debug.Log("collectible");
+            //GameManager.instance.IncreaseScore();
 
         }
         else if (other.CompareTag("obstacle"))
@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(RoketManager.instance.firlat());
         UiController.instance.incrementPanel.SetActive(false);
         UiController.instance.tapToStartPanel.SetActive(false);
+        
         //RoketManager.instance.cb.enabled = true;
     }
 }
