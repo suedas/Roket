@@ -20,9 +20,8 @@ public class SwerveMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // oyunu baþlatýyoruz.. karakter ileri hareket etmeye baþlýyor..
-            if (!GameManager.instance.isContinue && UiController.instance.tapToStartPanel.activeInHierarchy) {
-                PlayerController.instance.PostStartingEvents();
-                UiController.instance.tapToStartPanel.SetActive(false);
+            if (!GameManager.instance.isContinue ) {
+               
             }
             
             lastMousePosX = Input.mousePosition.x;

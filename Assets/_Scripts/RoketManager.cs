@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class RoketManager : MonoBehaviour
 {
@@ -14,11 +15,18 @@ public class RoketManager : MonoBehaviour
     #endregion
 
     public float gaz = 0;
+    public int levelGaz=1;
+    public int gazPara=50;
     public float maxgaz = 100;
     public float hiz = 0;
+    public int levelHiz = 1;
+    public int hizPara = 50;
     public float maxhiz = 10;
+    public int mesafe;
+    public int mesafeLevel;
+    public int mesafePara;
     public Rigidbody rb;
-
+    public CinemachineBrain cb;
 
     public IEnumerator firlat()
     {
@@ -38,21 +46,11 @@ public class RoketManager : MonoBehaviour
                 }
                 gaz += 1;
                 Debug.Log(hiz);
-                //transform.Translate(0, y*Time.deltaTime, 0);
-               // transform.position = new Vector3(transform.position.x, transform.position.y + .1f, transform.position.z);
-                rb.velocity = new Vector3(transform.position.x, hiz, transform.position.z);
-                
+                rb.velocity = new Vector3(transform.position.x, hiz, transform.position.z);                
                 yield return new WaitForEndOfFrame();
             }
             rb.useGravity = true;
-            //else
-            //{
-            //    //aþaðý düþecek
-            //    Debug.Log("gaz bitti");
-
-            //}
-          
-
+            cb.enabled = false;
         }
 
     }

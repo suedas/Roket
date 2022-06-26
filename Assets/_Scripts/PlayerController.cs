@@ -64,5 +64,8 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.levelScore = 0;
         GameManager.instance.isContinue = true;
         StartCoroutine(RoketManager.instance.firlat());
+        UiController.instance.incrementPanel.SetActive(false);
+        UiController.instance.tapToStartPanel.SetActive(false);
+        //RoketManager.instance.cb.enabled = true;
     }
 }
