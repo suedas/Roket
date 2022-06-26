@@ -149,7 +149,7 @@ public class UiController : MonoBehaviour
 		PlayerPrefs.SetInt("mesafepara", RoketManager.instance.mesafePara);
 
 		levelMesafe.text = "Level  " + RoketManager.instance.mesafeLevel.ToString();
-		paraHiz.text = "Para  " + RoketManager.instance.mesafePara.ToString();
+		paraMesafe.text = "Para  " + RoketManager.instance.mesafePara.ToString();
 
 
     }

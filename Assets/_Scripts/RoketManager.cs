@@ -22,7 +22,7 @@ public class RoketManager : MonoBehaviour
     public int levelHiz = 1;
     public int hizPara = 50;
     public float maxhiz = 10;
-    public int mesafe;
+    public int mesafe=3;
     public int mesafeLevel;
     public int mesafePara;
     public Rigidbody rb;
