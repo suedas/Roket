@@ -24,13 +24,11 @@ public class GameManager : MonoBehaviour
 
 		SpawnManger.instance.spawn();
 		isContinue = false;	
-        if (score==0)
-        {
-			score = 1000;
-			PlayerPrefs.SetInt("score", score);
-			Debug.Log(score);
-        }	
-		score = PlayerPrefs.GetInt("score");
+      
+       
+	    score = PlayerPrefs.GetInt("score");
+
+		
 	}
 
 

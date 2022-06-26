@@ -39,11 +39,11 @@ public class RoketManager : MonoBehaviour
             {
                 if (gaz<maxgaz/10 && hiz<maxhiz)
                 {
-                    hiz += 0.5f;
+                    hiz += 0.2f;
                 }
                 else if (gaz>maxgaz*9/10)
                 {
-                    hiz -= 0.5f;
+                    hiz -= 0.2f;
                 }
                 gaz += 1;
                 rb.velocity = new Vector3(transform.position.x, hiz, transform.position.z);                

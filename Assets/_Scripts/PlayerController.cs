@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
             // score islemleri.. animasyon.. efect.. collectiblen destroy edilmesi.. 
             //Debug.Log("collectible");
             //GameManager.instance.IncreaseScore();
-            RoketManager.instance.maxgaz += 5;
+            RoketManager.instance.gaz -= 5f;
+            //RoketManager.instance.maxgaz += 5;
             Debug.Log("çarptý");
 
         }
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
             // oyun bitebilir bunun kontrolu de burada yapilabilir..
             //Debug.Log("obstacle");
             //GameManager.instance.DecreaseScore();
-            RoketManager.instance.maxgaz -= 5;
+            RoketManager.instance.gaz += 5f;
         }
         else if (other.CompareTag("finish"))
         {
