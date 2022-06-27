@@ -34,6 +34,7 @@ public class RoketManager : MonoBehaviour
     public GameObject distanceImage;
     public GameObject distance;
     public Transform DistanceParent;
+    public int Highscore;
    // public TextMeshProUGUI distanceText;
     public IEnumerator firlat()
     {
@@ -61,9 +62,16 @@ public class RoketManager : MonoBehaviour
             
             yield return new WaitForSeconds(.5f);
             mesafe = transform.position.y;
-      
+            Highscore = Convert.ToInt32(mesafe * maxMesafe);
             Debug.Log(mesafe);
-            distanceImage.GetComponent<TextMeshPro>().text = Convert.ToInt32(mesafe) +"m";
+            distanceImage.GetComponent<TextMeshPro>().text = Convert.ToInt32(mesafe * maxMesafe) + "m";
+           
+                if (Highscore > PlayerPrefs.GetInt("highscore"))
+                {
+                    PlayerPrefs.SetInt("highscore", Highscore);
+                }
+            
+           
            // distanceText.text = mesafe.ToString() + "m";
                     
             yield return new WaitForSeconds(.2f);

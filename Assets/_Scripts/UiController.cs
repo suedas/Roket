@@ -16,7 +16,7 @@ public class UiController : MonoBehaviour
 	#endregion
 
 	public GameObject winPanel, gamePanel, losePanel,tapToStartPanel,incrementPanel;
-	public TextMeshProUGUI scoreText,levelText,levelGaz,levelHiz,paraGaz,paraHiz,levelMesafe,paraMesafe,totalGaz,totalHiz,totalMesafe;
+	public TextMeshProUGUI scoreText,levelText,levelGaz,levelHiz,paraGaz,paraHiz,levelMesafe,paraMesafe,totalGaz,totalHiz,totalMesafe,highScore;
 	public Button gazButton, hizButton, mesafeButton;
 	public Slider slider;
 
@@ -122,6 +122,8 @@ public class UiController : MonoBehaviour
 	{
 	
 		winPanel.SetActive(true);
+		highScore.text = "High Score  "+PlayerPrefs.GetInt("highscore").ToString();
+
 	}
 
 
