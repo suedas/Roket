@@ -33,6 +33,7 @@ public class RoketManager : MonoBehaviour
     public GameObject target;
     public GameObject distanceImage;
     public GameObject distance;
+    public Transform DistanceParent;
    // public TextMeshProUGUI distanceText;
     public IEnumerator firlat()
     {
@@ -46,6 +47,7 @@ public class RoketManager : MonoBehaviour
                 {
                     hiz += 0.2f;
                 }
+           
                 else if (gaz>maxgaz*9/10)
                 {
                     hiz -= 0.2f;
@@ -54,22 +56,28 @@ public class RoketManager : MonoBehaviour
                 rb.velocity = new Vector3(transform.position.x, hiz, transform.position.z);
                 target.GetComponent<Rigidbody>().velocity= new Vector3(target.transform.position.x, hiz,target.transform.position.z);
                 yield return new WaitForEndOfFrame();
+                
             }
             
             yield return new WaitForSeconds(.5f);
             mesafe = transform.position.y;
-            float distanceValue= transform.position.y;
-            Vector3 ts = new Vector3(-1.057f, distance.transform.position.y, 0);
-            Debug.Log(mesafe);         
-            Instantiate(distanceImage, ts, Quaternion.identity);
-            distanceImage.GetComponent<TextMeshPro>().text = Convert.ToInt32(distanceValue) +"m";
+      
+            Debug.Log(mesafe);
+            distanceImage.GetComponent<TextMeshPro>().text = Convert.ToInt32(mesafe) +"m";
            // distanceText.text = mesafe.ToString() + "m";
+                    
             yield return new WaitForSeconds(.2f);
             GameManager.instance.IncreaseScore();
 
+            Vector3 ts = new Vector3(-1.057f, distance.transform.position.y, 0);
+            Instantiate(distanceImage, ts, Quaternion.identity,DistanceParent);
             rb.useGravity = true;
             cb.enabled = false;
-            
+            yield return new WaitForSeconds(1f);
+            UiController.instance.OpenWinPanel();
+          
+      
+
         }
 
     }

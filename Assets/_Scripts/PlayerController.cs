@@ -58,9 +58,32 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void PreStartingEvents()
 	{
-        PlayerMovement.instance.transform.position = Vector3.zero;
+        //PlayerMovement.instance.transform.position = Vector3.zero;
+        RoketManager.instance.rb.useGravity = false;
+        RoketManager.instance.rb.velocity = Vector3.zero;
+        RoketManager.instance.target.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        RoketManager.instance.transform.position = new Vector3 (0,0,0);
+        RoketManager.instance.target.transform.position = new Vector3(0, 0, 0);
         GameManager.instance.isContinue = false;
-	}
+        RoketManager.instance.cb.enabled = true;
+       // Destroy(RoketManager.instance.distanceImage);
+        RoketManager.instance.gaz = 0;
+        RoketManager.instance.hiz = 0;
+        RoketManager.instance.mesafe = 0;
+        for (int i = 0; i < SpawnManger.instance.objects.transform.childCount; i++)
+        {
+            Destroy(SpawnManger.instance.objects.transform.GetChild(i).gameObject);
+        }
+        for (int j = 0; j < RoketManager.instance.DistanceParent.transform.childCount; j++)
+        {
+            Destroy(RoketManager.instance.DistanceParent.GetChild(j).gameObject);
+        }
+        
+       
+        
+
+
+    }
 
     /// <summary>
     /// taptostart butonuna týklanýnca (ya da oyun basi ilk dokunus) karakter kosmaya baslar, belki hizi ayarlanýr, animasyon scale rotate
@@ -73,7 +96,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(RoketManager.instance.firlat());
         UiController.instance.incrementPanel.SetActive(false);
         UiController.instance.tapToStartPanel.SetActive(false);
-        
+        SpawnManger.instance.spawn();
         //RoketManager.instance.cb.enabled = true;
     }
 }

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 
-		SpawnManger.instance.spawn();
+	
 		isContinue = false;	
       
        

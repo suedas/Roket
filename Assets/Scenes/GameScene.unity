@@ -346,6 +346,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158099493}
   m_CullTransparentMesh: 1
+--- !u!1 &181766003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181766004}
+  m_Layer: 0
+  m_Name: distanceTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &181766004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181766003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1597856531}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230056010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,6 +2638,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1039640663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1039640664}
+  m_Layer: 0
+  m_Name: objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1039640664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039640663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.134, z: 12.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1125317518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4285,6 +4347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectible: {fileID: 2213312214261463450, guid: ba51a9f21fa0b1940b7faa4b1ab424ff, type: 3}
   obstacle: {fileID: 7655317627647855450, guid: 8076789c4da22bf4597625dec1fde062, type: 3}
+  objects: {fileID: 1039640664}
 --- !u!1 &1597856530
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,6 +4384,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1902256216}
+  - {fileID: 181766004}
   m_Father: {fileID: 1801225740}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4414,7 +4478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swerveSpeed: 0.4
   maxSwerveAmount: 0.8
-  maxHorizontalDistance: 2
+  maxHorizontalDistance: 1
   checkDistanceChange: 1
   maxHorizontalChange: 0.6
 --- !u!54 &1597856538
@@ -4460,6 +4524,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   cb: {fileID: 1654838908}
   target: {fileID: 1006666951}
+  distanceImage: {fileID: 1052746016728117125, guid: 362a0e3b620812d4e831695ee76dacd5, type: 3}
+  distance: {fileID: 181766003}
 --- !u!1 &1606908143
 GameObject:
   m_ObjectHideFlags: 0
