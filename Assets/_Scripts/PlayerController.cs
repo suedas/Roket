@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("collectible");
             //GameManager.instance.IncreaseScore();
             RoketManager.instance.gaz -= 5f;
+            Destroy(other.gameObject);
             //RoketManager.instance.maxgaz += 5;
             Debug.Log("çarptý");
 
@@ -32,6 +33,8 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("obstacle");
             //GameManager.instance.DecreaseScore();
             RoketManager.instance.gaz += 5f;
+            Destroy(other.gameObject);
+
         }
         else if (other.CompareTag("finish"))
         {

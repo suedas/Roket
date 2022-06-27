@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using TMPro;
+using System;
 
 public class RoketManager : MonoBehaviour
 {
@@ -28,7 +30,10 @@ public class RoketManager : MonoBehaviour
     public int mesafePara;
     public Rigidbody rb;
     public CinemachineBrain cb;
-
+    public GameObject target;
+    public GameObject distanceImage;
+    public GameObject distance;
+   // public TextMeshProUGUI distanceText;
     public IEnumerator firlat()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,15 +50,23 @@ public class RoketManager : MonoBehaviour
                 {
                     hiz -= 0.2f;
                 }
-                gaz += 1;
-                rb.velocity = new Vector3(transform.position.x, hiz, transform.position.z);                
+                gaz += 1f;
+                rb.velocity = new Vector3(transform.position.x, hiz, transform.position.z);
+                target.GetComponent<Rigidbody>().velocity= new Vector3(target.transform.position.x, hiz,target.transform.position.z);
                 yield return new WaitForEndOfFrame();
             }
-            mesafe = transform.position.y;
-            Debug.Log(mesafe);
-            GameManager.instance.IncreaseScore();
-            yield return new WaitForSeconds(.2f);
             
+            yield return new WaitForSeconds(.5f);
+            mesafe = transform.position.y;
+            float distanceValue= transform.position.y;
+            Vector3 ts = new Vector3(-1.057f, distance.transform.position.y, 0);
+            Debug.Log(mesafe);         
+            Instantiate(distanceImage, ts, Quaternion.identity);
+            distanceImage.GetComponent<TextMeshPro>().text = Convert.ToInt32(distanceValue) +"m";
+           // distanceText.text = mesafe.ToString() + "m";
+            yield return new WaitForSeconds(.2f);
+            GameManager.instance.IncreaseScore();
+
             rb.useGravity = true;
             cb.enabled = false;
             
