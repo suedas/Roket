@@ -27,7 +27,7 @@ public class RoketManager : MonoBehaviour
     public float mesafe;
     public float maxMesafe=1;
     public int mesafeLevel;
-    public int mesafePara;
+    public int mesafePara=50;
     public Rigidbody rb;
     public CinemachineBrain cb;
     public GameObject target;
@@ -84,7 +84,7 @@ public class RoketManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             UiController.instance.OpenWinPanel();
             yield return new WaitForSeconds(1f);
-            GameManager.instance.scoreArtisMiktari = Convert.ToInt32(mesafe * maxMesafe);
+           // GameManager.instance.scoreArtisMiktari = Convert.ToInt32(mesafe * maxMesafe);
             GameManager.instance.IncreaseScore();
 
 

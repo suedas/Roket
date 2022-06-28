@@ -22,16 +22,25 @@ public class UiController : MonoBehaviour
 
 	private void Start()
 	{
-		
-   //     if (GameManager.instance.scoreArtisMiktari==0)
-   //     {
-			//gazButton.interactable = false;
-		 //    hizButton.interactable = false;
-			//mesafeButton.interactable = false;
+		Debug.Log("mesafepar" + RoketManager.instance.mesafePara);
+		Debug.Log("score" + GameManager.instance.score);
+		Debug.Log("gaz" + RoketManager.instance.gazPara);
 
-   //     }
-    
-		
+        if (RoketManager.instance.gazPara > GameManager.instance.score)
+        {
+            gazButton.interactable = false;
+        }
+        if (RoketManager.instance.hizPara > GameManager.instance.score)
+        {
+            hizButton.interactable = false;
+
+        }
+        if (RoketManager.instance.mesafePara > GameManager.instance.score)
+        {
+            Debug.Log(GameManager.instance.score);
+            mesafeButton.interactable = false;
+        }
+        //PlayerPrefs.DeleteAll();
 		UiController.instance.slider.maxValue = RoketManager.instance.maxgaz;
 		UiController.instance.slider.minValue = RoketManager.instance.gaz;
 		if (PlayerPrefs.HasKey("gaz"))
@@ -66,6 +75,7 @@ public class UiController : MonoBehaviour
 			{
 				RoketManager.instance.maxMesafe = 1;
 				RoketManager.instance.mesafeLevel = 1;
+	
 
 			}
 			UiController.instance.totalMesafe.text = "Mesafe  " + PlayerPrefs.GetFloat("mesafe") + "x";

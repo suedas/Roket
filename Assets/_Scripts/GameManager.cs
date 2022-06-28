@@ -21,14 +21,14 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-
-	
-		isContinue = false;	
-      
-       
-	    score = PlayerPrefs.GetInt("score");
-
-		
+		isContinue = false;
+        if (score==0)
+        {
+			//score = 10;
+			
+		}
+		score = PlayerPrefs.GetInt("score");
+		//PlayerPrefs.DeleteAll();
 	}
 
 
@@ -39,9 +39,10 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void IncreaseScore()
     {
-        if (score>=0)
+        if (score>0)
         {
-			//scoreArtisMiktari = RoketManager.instance.Highscore ;
+			Debug.Log("scoree" + scoreArtisMiktari);
+			scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe); 
 			score += scoreArtisMiktari;
 			levelScore += scoreArtisMiktari;
 			PlayerPrefs.SetInt("score", score);
@@ -49,12 +50,18 @@ public class GameManager : MonoBehaviour
 			Debug.Log("score artiþ"+scoreArtisMiktari);
 
 		}
-   //     else
-   //     {
-			//score = 0;
-   //     }
-	
-	}
+  //      else if (score==0)
+  //      {
+		//	Debug.Log("dddddddddddddddddddd");
+		//	score = 11;//Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe);
+		//	PlayerPrefs.SetInt("score", score);
+		//}
+        else
+        {
+            score =0;
+        }
+
+    }
 
 
 	/// <summary>
@@ -64,17 +71,17 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void DecreaseScore()
     {
-        if (score>0)
+        if (score>=0)
         {
-		score -= scoreArtisMiktari;
-		levelScore -= scoreArtisMiktari;
-		PlayerPrefs.SetInt("score", score);
-		UiController.instance.SetScoreText();
+			score -= scoreArtisMiktari;
+			levelScore -= scoreArtisMiktari;
+			PlayerPrefs.SetInt("score", score);
+			UiController.instance.SetScoreText();
 
         }
         else
         {
-			score = 0;
+			score =0;
         }
 	}
 }

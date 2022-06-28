@@ -81,9 +81,33 @@ public class PlayerController : MonoBehaviour
         //GameManager.instance.IncreaseScore();
         UiController.instance.incrementPanel.SetActive(true);
 
+        if (RoketManager.instance.gazPara > GameManager.instance.score)
+        {
+           UiController.instance.gazButton.interactable = false;
+        }
+        else
+        {
+            UiController.instance.gazButton.interactable = true;
+        }
+        if (RoketManager.instance.hizPara > GameManager.instance.score)
+        {
+            UiController.instance.hizButton.interactable = false;
 
+        }
+        else
+        {
+            UiController.instance.hizButton.interactable = true;
+        }
+        if (RoketManager.instance.mesafePara > GameManager.instance.score)
+        {
+            Debug.Log(GameManager.instance.score);
+            UiController.instance.mesafeButton.interactable = false;
+        }
+        else
+        {
+            UiController.instance.mesafeButton.interactable = true;
 
-
+        }
     }
 
     /// <summary>
