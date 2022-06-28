@@ -46,7 +46,7 @@ public class RoketManager : MonoBehaviour
             {
                 if (gaz<maxgaz/10 && hiz<maxhiz)
                 {
-                    hiz += 0.2f;
+                    hiz += .5f;
                 }
            
                 else if (gaz>maxgaz*9/10)
@@ -75,7 +75,7 @@ public class RoketManager : MonoBehaviour
            // distanceText.text = mesafe.ToString() + "m";
                     
             yield return new WaitForSeconds(.2f);
-            GameManager.instance.IncreaseScore();
+           
 
             Vector3 ts = new Vector3(-1.057f, distance.transform.position.y, 0);
             Instantiate(distanceImage, ts, Quaternion.identity,DistanceParent);
@@ -83,8 +83,12 @@ public class RoketManager : MonoBehaviour
             cb.enabled = false;
             yield return new WaitForSeconds(1f);
             UiController.instance.OpenWinPanel();
-          
-      
+            yield return new WaitForSeconds(1f);
+            GameManager.instance.scoreArtisMiktari = Convert.ToInt32(mesafe * maxMesafe);
+            GameManager.instance.IncreaseScore();
+
+
+
 
         }
 

@@ -78,9 +78,10 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(RoketManager.instance.DistanceParent.GetChild(j).gameObject);
         }
-        
-       
-        
+        //GameManager.instance.IncreaseScore();
+        UiController.instance.incrementPanel.SetActive(true);
+
+
 
 
     }

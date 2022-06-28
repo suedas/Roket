@@ -39,18 +39,20 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void IncreaseScore()
     {
-        if (score>0)
+        if (score>=0)
         {
-			scoreArtisMiktari = (int)(Convert.ToInt32(RoketManager.instance.mesafe) * RoketManager.instance.maxMesafe);
+			//scoreArtisMiktari = RoketManager.instance.Highscore ;
 			score += scoreArtisMiktari;
 			levelScore += scoreArtisMiktari;
 			PlayerPrefs.SetInt("score", score);
 			UiController.instance.SetScoreText();
+			Debug.Log("score artiþ"+scoreArtisMiktari);
+
 		}
-        else
-        {
-			score = 0;
-        }
+   //     else
+   //     {
+			//score = 0;
+   //     }
 	
 	}
 

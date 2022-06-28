@@ -22,6 +22,16 @@ public class UiController : MonoBehaviour
 
 	private void Start()
 	{
+		
+   //     if (GameManager.instance.scoreArtisMiktari==0)
+   //     {
+			//gazButton.interactable = false;
+		 //    hizButton.interactable = false;
+			//mesafeButton.interactable = false;
+
+   //     }
+    
+		
 		UiController.instance.slider.maxValue = RoketManager.instance.maxgaz;
 		UiController.instance.slider.minValue = RoketManager.instance.gaz;
 		if (PlayerPrefs.HasKey("gaz"))
@@ -30,6 +40,7 @@ public class UiController : MonoBehaviour
 			if (RoketManager.instance.maxgaz == 0)
 			{
 				RoketManager.instance.maxgaz = 100;
+				RoketManager.instance.levelGaz = 1;
 			}
 			UiController.instance.totalGaz.text = "Gaz " + PlayerPrefs.GetFloat("gaz");
 			UiController.instance.levelGaz.text = "Level  " + PlayerPrefs.GetInt("levelgaz").ToString();
@@ -41,6 +52,8 @@ public class UiController : MonoBehaviour
 			if (RoketManager.instance.hiz == 0)
 			{
 				RoketManager.instance.hiz = 0;
+				RoketManager.instance.levelHiz = 1;
+
 			}
 			UiController.instance.totalHiz.text = "Hýz  " + PlayerPrefs.GetFloat("hiz");
 			UiController.instance.levelHiz.text = "Level  " + PlayerPrefs.GetInt("levelhiz");
@@ -52,6 +65,8 @@ public class UiController : MonoBehaviour
 			if (RoketManager.instance.maxMesafe == 0)
 			{
 				RoketManager.instance.maxMesafe = 1;
+				RoketManager.instance.mesafeLevel = 1;
+
 			}
 			UiController.instance.totalMesafe.text = "Mesafe  " + PlayerPrefs.GetFloat("mesafe") + "x";
 			UiController.instance.levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel");
@@ -122,7 +137,7 @@ public class UiController : MonoBehaviour
 	{
 	
 		winPanel.SetActive(true);
-		highScore.text = "High Score  "+PlayerPrefs.GetInt("highscore").ToString();
+		highScore.text = "High Score  "+PlayerPrefs.GetInt("highscore").ToString();	
 
 	}
 
