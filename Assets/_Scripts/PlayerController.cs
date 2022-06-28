@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         RoketManager.instance.cb.enabled = true;
        // Destroy(RoketManager.instance.distanceImage);
         RoketManager.instance.gaz = 0;
-        RoketManager.instance.hiz = 0;
+        RoketManager.instance.hiz = PlayerPrefs.GetFloat("hiz");
         RoketManager.instance.mesafe = 0;
         for (int i = 0; i < SpawnManger.instance.objects.transform.childCount; i++)
         {
