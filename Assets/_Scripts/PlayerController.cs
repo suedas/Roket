@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
             RoketManager.instance.gaz -= 5f;
             Destroy(other.gameObject);
             //RoketManager.instance.maxgaz += 5;
-            Debug.Log("çarptý");
+           // Debug.Log("çarptý");
 
         }
         else if (other.CompareTag("obstacle"))
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
             // bazý oyunlarda farkli parametlere göre kontrol etmek veya oyun sonunda karakterin yola devam etmesi gibi
             // durumlarda developer burayý kendisi duzenlemelidir.
             GameManager.instance.isContinue = false;
-            Debug.Log(GameManager.instance.levelScore);
+           // Debug.Log(GameManager.instance.levelScore);
             if (GameManager.instance.levelScore > 10) UiController.instance.OpenWinPanel();
             else UiController.instance.OpenLosePanel();
         }
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         }
         if (RoketManager.instance.mesafePara > GameManager.instance.score)
         {
-            Debug.Log(GameManager.instance.score);
+           // Debug.Log(GameManager.instance.score);
             UiController.instance.mesafeButton.interactable = false;
         }
         else

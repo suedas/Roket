@@ -63,7 +63,7 @@ public class RoketManager : MonoBehaviour
             yield return new WaitForSeconds(.5f);
             mesafe = transform.position.y;
             Highscore = Convert.ToInt32(mesafe * maxMesafe);
-            Debug.Log(mesafe);
+            //Debug.Log(mesafe);
             distanceImage.GetComponent<TextMeshPro>().text = Convert.ToInt32(mesafe * maxMesafe) + "m";
            
                 if (Highscore > PlayerPrefs.GetInt("highscore"))
@@ -84,8 +84,20 @@ public class RoketManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             UiController.instance.OpenWinPanel();
             yield return new WaitForSeconds(1f);
-           // GameManager.instance.scoreArtisMiktari = Convert.ToInt32(mesafe * maxMesafe);
-            GameManager.instance.IncreaseScore();
+            // GameManager.instance.scoreArtisMiktari = Convert.ToInt32(mesafe * maxMesafe);
+            if (GameManager.instance.score==0)
+            {
+                GameManager.instance.score = Convert.ToInt32( mesafe * maxMesafe);
+                UiController.instance.scoreText.text = GameManager.instance.score.ToString();
+                //GameManager.instance.IncreaseScore();
+                //Debug.Log("firlattaki score" + GameManager.instance.score);
+            }
+            else
+            {
+                Debug.Log("yok artýk");
+                 GameManager.instance.IncreaseScore();
+
+            }
 
 
 

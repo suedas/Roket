@@ -169,7 +169,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56186044, y: 1}
+    m_SensorSize: {x: 0.5628643, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -185,7 +185,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8612313}
-  m_LocalRotation: {x: 0.25666794, y: -0.0000000033791123, z: 8.973711e-10, w: 0.9664997}
+  m_LocalRotation: {x: 0.2566679, y: 0.000000029001464, z: -0.000000007701757, w: 0.9664997}
   m_LocalPosition: {x: 0, y: 3.941, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4467,7 +4467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isContinue: 0
   scoreArtisMiktari: 10
-  score: 0
+  score: 10
   levelScore: 0
 --- !u!114 &1535574677
 MonoBehaviour:
@@ -4613,7 +4613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swerveSpeed: 0.4
-  maxSwerveAmount: 0.8
+  maxSwerveAmount: 0.5
   maxHorizontalDistance: 1
   checkDistanceChange: 1
   maxHorizontalChange: 0.6
@@ -4656,7 +4656,7 @@ MonoBehaviour:
   mesafe: 50
   maxMesafe: 1
   mesafeLevel: 0
-  mesafePara: 0
+  mesafePara: 50
   rb: {fileID: 0}
   cb: {fileID: 1654838908}
   target: {fileID: 1006666951}
@@ -5148,7 +5148,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654838904}
-  m_LocalRotation: {x: 0.25666794, y: -0.0000000033791123, z: 8.973711e-10, w: 0.9664997}
+  m_LocalRotation: {x: 0.2566679, y: 0.000000029001464, z: -0.000000007701757, w: 0.9664997}
   m_LocalPosition: {x: 0, y: 3.941, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

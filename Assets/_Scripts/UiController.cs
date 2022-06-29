@@ -23,7 +23,8 @@ public class UiController : MonoBehaviour
 	private void Start()
 	{
 		Debug.Log("mesafepar" + RoketManager.instance.mesafePara);
-		Debug.Log("score" + GameManager.instance.score);
+		Debug.Log("SCORE "+ GameManager.instance.score);
+		//Debug.Log("score" + GameManager.instance.score);
 		Debug.Log("gaz" + RoketManager.instance.gazPara);
 
         if (RoketManager.instance.gazPara > GameManager.instance.score)
@@ -37,7 +38,7 @@ public class UiController : MonoBehaviour
         }
         if (RoketManager.instance.mesafePara > GameManager.instance.score)
         {
-            Debug.Log(GameManager.instance.score);
+            //Debug.Log(GameManager.instance.score);
             mesafeButton.interactable = false;
         }
         //PlayerPrefs.DeleteAll();
@@ -79,8 +80,8 @@ public class UiController : MonoBehaviour
 
 			}
 			UiController.instance.totalMesafe.text = "Mesafe  " + PlayerPrefs.GetFloat("mesafe") + "x";
-			UiController.instance.levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel");
-			UiController.instance.paraMesafe.text = "Para  " + PlayerPrefs.GetInt("mesafepara");
+			UiController.instance.levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel").ToString();
+			UiController.instance.paraMesafe.text = "Para  " + PlayerPrefs.GetInt("mesafepara").ToString();
 		}
 
 		gamePanel.SetActive(true);

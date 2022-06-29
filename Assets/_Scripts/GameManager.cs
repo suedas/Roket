@@ -16,18 +16,19 @@ public class GameManager : MonoBehaviour
 
 	public bool isContinue; // player hareket etmesi veya dokunmatik calismasi buna bagli
 	public int scoreArtisMiktari; // bu deðer inspektör üzerinden ayarlanacak. her collectible a carpinca ne kadar score artisi olacagini bu sabit deger kontrol edecek
-	[HideInInspector]public int score; // bu deger birikimli olarak gidecektir. Her level sonu birikecek üzerine eklenecek. para v.s. olabilir.
+	[HideInInspector] public int score; // bu deger birikimli olarak gidecektir. Her level sonu birikecek üzerine eklenecek. para v.s. olabilir.
 	[HideInInspector]public int levelScore; // bu deger her levelin kendi score'u olacak. Her level basinda sifirlanacak. Level sonunda score'a eklenecek
 
 	private void Start()
 	{
 		isContinue = false;
-        if (score==0)
-        {
-			//score = 10;
+  //      if (score==0)
+  //      {
+		//	//score = 10;
 			
-		}
+		//}
 		score = PlayerPrefs.GetInt("score");
+		//Debug.Log("score baþlangýç"+ score);
 		//PlayerPrefs.DeleteAll();
 	}
 
@@ -41,13 +42,13 @@ public class GameManager : MonoBehaviour
     {
         if (score>0)
         {
-			Debug.Log("scoree" + scoreArtisMiktari);
+			//Debug.Log("scoree" + scoreArtisMiktari);
 			scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe); 
 			score += scoreArtisMiktari;
 			levelScore += scoreArtisMiktari;
 			PlayerPrefs.SetInt("score", score);
 			UiController.instance.SetScoreText();
-			Debug.Log("score artiþ"+scoreArtisMiktari);
+			//Debug.Log("score artiþ"+scoreArtisMiktari);
 
 		}
   //      else if (score==0)
