@@ -14,7 +14,7 @@ public class SpawnManger : MonoBehaviour
     #endregion
 
     public GameObject collectible;
-    public GameObject obstacle;
+    public GameObject[] obstacle;
     private GameObject eskiCollectible;
     private GameObject eskiObstacle;
     public Transform objects;
@@ -26,14 +26,14 @@ public class SpawnManger : MonoBehaviour
         for (int i = 0; i < 50; i++)
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-1.30f, 1.30f), yColelctible, 0);
-            eskiCollectible = Instantiate(collectible, spawnPosition, Quaternion.identity,objects);
+            eskiCollectible = Instantiate(collectible, spawnPosition, Quaternion.Euler(0,180,0),objects);
             yColelctible = eskiCollectible.transform.position.y;
             yColelctible += Random.Range(7f,12f);
         }
         for (int j= 0; j < 20; j++)
         {
             Vector3 obsatclePosition = new Vector3(Random.Range(-1.30f, 1.30f), yObstacle, 0);
-            eskiObstacle = Instantiate(obstacle, obsatclePosition, Quaternion.identity, objects);
+            eskiObstacle = Instantiate(obstacle[Random.RandomRange(0,2)], obsatclePosition, Quaternion.Euler(-90,0,0), objects);
             yObstacle = eskiObstacle.transform.position.y;
             yObstacle += Random.RandomRange(7f, 15f);
 

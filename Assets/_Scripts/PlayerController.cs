@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         RoketManager.instance.rb.useGravity = false;
         RoketManager.instance.rb.velocity = Vector3.zero;
         RoketManager.instance.target.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
-        RoketManager.instance.transform.position = new Vector3 (0,0,0);
+        RoketManager.instance.transform.position = new Vector3 (-0.89f,0.6f,0);
         RoketManager.instance.target.transform.position = new Vector3(0, 0, 0);
         GameManager.instance.isContinue = false;
         RoketManager.instance.cb.enabled = true;
