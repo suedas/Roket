@@ -19,6 +19,7 @@ public class UiController : MonoBehaviour
 	public TextMeshProUGUI scoreText,levelText,levelGaz,levelHiz,paraGaz,paraHiz,levelMesafe,paraMesafe,totalGaz,totalHiz,totalMesafe,highScore;
 	public Button gazButton, hizButton, mesafeButton;
 	public Slider slider;
+	public GameObject particleGas;
 
 	private void Start()
 	{
@@ -26,7 +27,7 @@ public class UiController : MonoBehaviour
 		//Debug.Log("SCORE "+ GameManager.instance.score);
 		////Debug.Log("score" + GameManager.instance.score);
 		//Debug.Log("gaz" + RoketManager.instance.gazPara);
-
+		particleGas.SetActive(false);
         if (RoketManager.instance.gazPara > GameManager.instance.score)
         {
             gazButton.interactable = false;

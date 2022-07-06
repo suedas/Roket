@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
         else Destroy(this);
     }
     #endregion
+    public GameObject particleObs;
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,7 +24,9 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("collectible");
             //GameManager.instance.IncreaseScore();
             RoketManager.instance.gaz -= 5f;
+         
             Destroy(other.gameObject);
+
             //RoketManager.instance.maxgaz += 5;
            // Debug.Log("çarptý");
 
@@ -33,6 +38,9 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("obstacle");
             //GameManager.instance.DecreaseScore();
             RoketManager.instance.gaz += 5f;
+            particleObs.SetActive(true);
+            StartCoroutine(delay());
+                
             Destroy(other.gameObject);
 
         }
@@ -56,7 +64,8 @@ public class PlayerController : MonoBehaviour
     /// score v.s. sifirlanir. bu gibi durumlar bu fonksiyon içinde yapilir.
     /// </summary>
     public void PreStartingEvents()
-	{
+    {
+
         RoketManager.instance.rb.useGravity = false;
         RoketManager.instance.rb.velocity = Vector3.zero;
         RoketManager.instance.target.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
@@ -102,13 +111,18 @@ public class PlayerController : MonoBehaviour
             UiController.instance.mesafeButton.interactable = true;
         }
     }
-
+    public IEnumerator delay()
+    {
+        yield return new WaitForSeconds(1.3f);
+        particleObs.SetActive(false);
+    }
     /// <summary>
     /// taptostart butonuna týklanýnca (ya da oyun basi ilk dokunus) karakter kosmaya baslar, belki hizi ayarlanýr, animasyon scale rotate
     /// gibi degerleri degistirilecekse onlar bu fonksiyon icinde yapilir...
     /// </summary>
     public void PostStartingEvents()
-	{
+    {
+        UiController.instance.particleGas.SetActive(true);
         GameManager.instance.levelScore = 0;
         GameManager.instance.isContinue = true;
         StartCoroutine(RoketManager.instance.firlat());

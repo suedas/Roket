@@ -53,13 +53,15 @@ public class RoketManager : MonoBehaviour
                 {
                     hiz -= 0.2f;
                 }
+                //UiController.instance.particleGas.SetActive(false);
                 gaz += 1f;
                 rb.velocity = new Vector3(transform.position.x, hiz, transform.position.z);
                 target.GetComponent<Rigidbody>().velocity= new Vector3(target.transform.position.x, hiz,target.transform.position.z);
                 yield return new WaitForEndOfFrame();
                 
             }
-            
+            UiController.instance.particleGas.SetActive(false);
+
             yield return new WaitForSeconds(.5f);
             mesafe = transform.position.y;
             Highscore = Convert.ToInt32(mesafe * maxMesafe);
