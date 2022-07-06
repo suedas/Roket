@@ -45,7 +45,6 @@ public class PlayerController : MonoBehaviour
             // bazý oyunlarda farkli parametlere göre kontrol etmek veya oyun sonunda karakterin yola devam etmesi gibi
             // durumlarda developer burayý kendisi duzenlemelidir.
             GameManager.instance.isContinue = false;
-           // Debug.Log(GameManager.instance.levelScore);
             if (GameManager.instance.levelScore > 10) UiController.instance.OpenWinPanel();
             else UiController.instance.OpenLosePanel();
         }
@@ -58,7 +57,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void PreStartingEvents()
 	{
-        //PlayerMovement.instance.transform.position = Vector3.zero;
         RoketManager.instance.rb.useGravity = false;
         RoketManager.instance.rb.velocity = Vector3.zero;
         RoketManager.instance.target.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
@@ -66,10 +64,9 @@ public class PlayerController : MonoBehaviour
         RoketManager.instance.target.transform.position = new Vector3(0, 0, 0);
         GameManager.instance.isContinue = false;
         RoketManager.instance.cb.enabled = true;
-       // Destroy(RoketManager.instance.distanceImage);
-        RoketManager.instance.gaz = 0;
+        RoketManager.instance.gaz = PlayerPrefs.GetFloat("gaz");
         RoketManager.instance.hiz = PlayerPrefs.GetFloat("hiz");
-        RoketManager.instance.mesafe = 0;
+        RoketManager.instance.mesafe = PlayerPrefs.GetFloat("mesafe");
         for (int i = 0; i < SpawnManger.instance.objects.transform.childCount; i++)
         {
             Destroy(SpawnManger.instance.objects.transform.GetChild(i).gameObject);
@@ -78,7 +75,6 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(RoketManager.instance.DistanceParent.GetChild(j).gameObject);
         }
-        //GameManager.instance.IncreaseScore();
         UiController.instance.incrementPanel.SetActive(true);
 
         if (RoketManager.instance.gazPara > GameManager.instance.score)
@@ -92,7 +88,6 @@ public class PlayerController : MonoBehaviour
         if (RoketManager.instance.hizPara > GameManager.instance.score)
         {
             UiController.instance.hizButton.interactable = false;
-
         }
         else
         {
@@ -100,13 +95,11 @@ public class PlayerController : MonoBehaviour
         }
         if (RoketManager.instance.mesafePara > GameManager.instance.score)
         {
-           // Debug.Log(GameManager.instance.score);
             UiController.instance.mesafeButton.interactable = false;
         }
         else
         {
             UiController.instance.mesafeButton.interactable = true;
-
         }
     }
 

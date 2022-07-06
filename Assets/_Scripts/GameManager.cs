@@ -22,13 +22,7 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		isContinue = false;
-  //      if (score==0)
-  //      {
-		//	//score = 10;
-			
-		//}
 		score = PlayerPrefs.GetInt("score");
-		//Debug.Log("score baþlangýç"+ score);
 		//PlayerPrefs.DeleteAll();
 	}
 
@@ -41,29 +35,19 @@ public class GameManager : MonoBehaviour
 	public void IncreaseScore()
     {
         if (score>0)
-        {
-			//Debug.Log("scoree" + scoreArtisMiktari);
-			scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe); 
+        {			
+			//scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe); 
 			score += scoreArtisMiktari;
 			levelScore += scoreArtisMiktari;
 			PlayerPrefs.SetInt("score", score);
 			UiController.instance.SetScoreText();
-			//Debug.Log("score artiþ"+scoreArtisMiktari);
-
 		}
-  //      else if (score==0)
-  //      {
-		//	Debug.Log("dddddddddddddddddddd");
-		//	score = 11;//Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe);
-		//	PlayerPrefs.SetInt("score", score);
-		//}
         else
         {
             score =0;
         }
 
     }
-
 
 	/// <summary>
 	/// Bu fonksiyon score deðerinin azaltilmasi icin kullanilir. 

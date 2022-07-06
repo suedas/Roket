@@ -22,10 +22,10 @@ public class UiController : MonoBehaviour
 
 	private void Start()
 	{
-		Debug.Log("mesafepar" + RoketManager.instance.mesafePara);
-		Debug.Log("SCORE "+ GameManager.instance.score);
-		//Debug.Log("score" + GameManager.instance.score);
-		Debug.Log("gaz" + RoketManager.instance.gazPara);
+		//Debug.Log("mesafepar" + RoketManager.instance.mesafePara);
+		//Debug.Log("SCORE "+ GameManager.instance.score);
+		////Debug.Log("score" + GameManager.instance.score);
+		//Debug.Log("gaz" + RoketManager.instance.gazPara);
 
         if (RoketManager.instance.gazPara > GameManager.instance.score)
         {
@@ -34,14 +34,14 @@ public class UiController : MonoBehaviour
         if (RoketManager.instance.hizPara > GameManager.instance.score)
         {
             hizButton.interactable = false;
-
+			
         }
         if (RoketManager.instance.mesafePara > GameManager.instance.score)
         {
             //Debug.Log(GameManager.instance.score);
             mesafeButton.interactable = false;
         }
-        //PlayerPrefs.DeleteAll();
+        
 		UiController.instance.slider.maxValue = RoketManager.instance.maxgaz;
 		UiController.instance.slider.minValue = RoketManager.instance.gaz;
 		if (PlayerPrefs.HasKey("gaz"))
@@ -65,9 +65,9 @@ public class UiController : MonoBehaviour
 				RoketManager.instance.levelHiz = 1;
 
 			}
-			UiController.instance.totalHiz.text = "Hýz  " + PlayerPrefs.GetFloat("hiz");
+			UiController.instance.totalHiz.text = "Speed  " + PlayerPrefs.GetFloat("hiz");
 			UiController.instance.levelHiz.text = "Level  " + PlayerPrefs.GetInt("levelhiz");
-			UiController.instance.paraHiz.text = "Para  " + PlayerPrefs.GetInt("hizpara");
+			UiController.instance.paraHiz.text = "Money  " + PlayerPrefs.GetInt("hizpara");
 		}
 		if (PlayerPrefs.HasKey("mesafe"))
 		{
@@ -170,9 +170,9 @@ public class UiController : MonoBehaviour
 			PlayerPrefs.SetInt("levelgaz", RoketManager.instance.levelGaz);
 			PlayerPrefs.SetInt("gazpara", RoketManager.instance.gazPara);
 
-			totalGaz.text = "Gaz  " + RoketManager.instance.maxgaz;
+			totalGaz.text = "Gas  " + RoketManager.instance.maxgaz;
 			levelGaz.text = "Level  " + RoketManager.instance.levelGaz;
-			paraGaz.text = "Para  " + RoketManager.instance.gazPara;
+			paraGaz.text = "Money  " + RoketManager.instance.gazPara;
 			GameManager.instance.DecreaseScore();
 
         }
@@ -195,9 +195,9 @@ public class UiController : MonoBehaviour
 			PlayerPrefs.SetInt("levelhiz", RoketManager.instance.levelHiz);
 			PlayerPrefs.SetInt("hizpara", RoketManager.instance.hizPara);
 
-			totalHiz.text = "Hýz  " + RoketManager.instance.hiz;
+			totalHiz.text = "Speed  " + RoketManager.instance.hiz;
 			levelHiz.text = "Level  " + RoketManager.instance.levelHiz.ToString();
-			paraHiz.text = "Para  " + RoketManager.instance.hizPara.ToString();
+			paraHiz.text = "Money  " + RoketManager.instance.hizPara.ToString();
 			GameManager.instance.DecreaseScore();
 
 		}
@@ -219,9 +219,9 @@ public class UiController : MonoBehaviour
 			PlayerPrefs.SetInt("mesafelevel", RoketManager.instance.mesafeLevel);
 			PlayerPrefs.SetInt("mesafepara", RoketManager.instance.mesafePara);
 
-			totalMesafe.text = "Mesafe  "+RoketManager.instance.maxMesafe.ToString()+"x";
+			totalMesafe.text = "Income  "+RoketManager.instance.maxMesafe.ToString()+"x";
 			levelMesafe.text = "Level  " + RoketManager.instance.mesafeLevel.ToString();
-			paraMesafe.text = "Para  " + RoketManager.instance.mesafePara.ToString();
+			paraMesafe.text = "Money  " + RoketManager.instance.mesafePara.ToString();
 			GameManager.instance.DecreaseScore();
 
 
