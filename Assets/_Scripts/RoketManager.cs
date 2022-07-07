@@ -55,7 +55,7 @@ public class RoketManager : MonoBehaviour
                 }
                 //UiController.instance.particleGas.SetActive(false);
                 gaz += 1f;
-                rb.velocity = new Vector3(transform.position.x, hiz, transform.position.z);
+                rb.velocity = new Vector3(0, hiz, 0);
                 target.GetComponent<Rigidbody>().velocity= new Vector3(target.transform.position.x, hiz,target.transform.position.z);
                 yield return new WaitForEndOfFrame();
                 
@@ -74,7 +74,7 @@ public class RoketManager : MonoBehaviour
                           
             yield return new WaitForSeconds(.2f);
             Vector3 ts = new Vector3(-1.057f, distance.transform.position.y, 0);
-            Instantiate(distanceImage, ts, Quaternion.identity,DistanceParent);
+            Instantiate(distanceImage, ts, Quaternion.Euler(0,0,1.5f),DistanceParent);
             rb.useGravity = true;
             cb.enabled = false;
             yield return new WaitForSeconds(1f);
