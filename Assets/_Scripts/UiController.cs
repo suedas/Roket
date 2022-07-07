@@ -27,6 +27,7 @@ public class UiController : MonoBehaviour
 		//Debug.Log("SCORE "+ GameManager.instance.score);
 		////Debug.Log("score" + GameManager.instance.score);
 		//Debug.Log("gaz" + RoketManager.instance.gazPara);
+		//PlayerPrefs.DeleteAll();
 		particleGas.SetActive(false);
         if (RoketManager.instance.gazPara > GameManager.instance.score)
         {
@@ -180,6 +181,7 @@ public class UiController : MonoBehaviour
         else
         {
 			gazButton.interactable = false;
+			//GameManager.instance.score = 0;
         }
 
     }
@@ -205,7 +207,9 @@ public class UiController : MonoBehaviour
 		else
         {
 			hizButton.interactable = false;
-        }
+			//GameManager.instance.score = 0;
+
+		}
 	}
 	public void mesafe()
     {
@@ -230,9 +234,11 @@ public class UiController : MonoBehaviour
 		else
         {
 			mesafeButton.interactable = false;
-        }
+			//GameManager.instance.score = 0;
+
+		}
 
 
-    }
+	}
 }
 

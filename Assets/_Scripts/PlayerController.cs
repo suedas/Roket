@@ -73,8 +73,8 @@ public class PlayerController : MonoBehaviour
         RoketManager.instance.target.transform.position = new Vector3(0, 0, 0);
         GameManager.instance.isContinue = false;
         RoketManager.instance.cb.enabled = true;
-        RoketManager.instance.gaz = PlayerPrefs.GetFloat("gaz");
-        RoketManager.instance.hiz = PlayerPrefs.GetFloat("hiz");
+        RoketManager.instance.gaz = 0;
+        RoketManager.instance.hiz = 0;
         RoketManager.instance.mesafe = PlayerPrefs.GetFloat("mesafe");
         for (int i = 0; i < SpawnManger.instance.objects.transform.childCount; i++)
         {
