@@ -80,23 +80,24 @@ public class RoketManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             UiController.instance.OpenWinPanel();
             yield return new WaitForSeconds(1f);
-            if (GameManager.instance.score==0)
-            {
-                Debug.Log("score 0 burda þuan");
-                Debug.Log(mesafe + "mesafe ");
-                Debug.Log(maxMesafe + "maxmesafe");
-                GameManager.instance.score = Convert.ToInt32( mesafe * maxMesafe);
-                //PlayerPrefs.SetInt("score", GameManager.instance.score);
-                UiController.instance.scoreText.text = GameManager.instance.score.ToString();
-            }
-            else
-            {
-                Debug.Log(mesafe + "mesfae");
-                Debug.Log(maxMesafe + "maxmesafe");
-               Debug.Log("score 0 deðil ");
-                GameManager.instance.scoreArtisMiktari = Convert.ToInt32(mesafe * maxMesafe);
-                GameManager.instance.IncreaseScore();
-            }
+            Debug.Log("winpanelden sonra =" + maxMesafe);
+            GameManager.instance.IncreaseScore();
+            //if (GameManager.instance.score==0)
+            //{
+            //    Debug.Log("score 0 burda þuan");
+            //    Debug.Log(mesafe + "mesafe ");
+            //    Debug.Log(maxMesafe + "maxmesafe");
+            //    GameManager.instance.score = Convert.ToInt32( mesafe * maxMesafe);
+            //    PlayerPrefs.SetInt("score", GameManager.instance.score);
+            //    UiController.instance.scoreText.text = GameManager.instance.score.ToString();
+            //    Debug.Log(GameManager.instance.score + "  score 0 ken gelen deðer ");
+            //}
+            //else
+            //{
+               
+            //   Debug.Log("score 0 deðil "+ GameManager.instance.score);
+            //   GameManager.instance.IncreaseScore();
+            //}
            
         }
     }

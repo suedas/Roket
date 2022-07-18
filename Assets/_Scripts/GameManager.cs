@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
 	{
 		isContinue = false;
 		score = PlayerPrefs.GetInt("score");
-		//PlayerPrefs.DeleteAll();
 	}
 
 
@@ -34,14 +33,15 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void IncreaseScore()
     {
-        if (score>0)
-        {			
-			//scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe); 
-			score += scoreArtisMiktari;
-			levelScore += scoreArtisMiktari;
-			PlayerPrefs.SetInt("score", score);
-			UiController.instance.SetScoreText();
-		}
+        if (score>=0)
+        {
+			Debug.Log(RoketManager.instance.mesafe);
+            scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe);
+            score += scoreArtisMiktari;
+            levelScore += scoreArtisMiktari;
+            PlayerPrefs.SetInt("score", score);
+            UiController.instance.SetScoreText();
+        }
         else
         {
             score =0;

@@ -20,23 +20,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("collectible"))
         {
-            // score islemleri.. animasyon.. efect.. collectiblen destroy edilmesi.. 
-            //Debug.Log("collectible");
-            //GameManager.instance.IncreaseScore();
-            RoketManager.instance.gaz -= 5f;
-         
+            RoketManager.instance.gaz -= 5f;         
             Destroy(other.gameObject);
-
-            //RoketManager.instance.maxgaz += 5;
-           // Debug.Log("çarptý");
 
         }
         else if (other.CompareTag("obstacle"))
         {
-            // score islemleri.. animasyon.. efect.. obstaclein destroy edilmesi.. 
-            // oyun bitebilir bunun kontrolu de burada yapilabilir..
-            //Debug.Log("obstacle");
-            //GameManager.instance.DecreaseScore();
             RoketManager.instance.gaz += 5f;
             particleObs.SetActive(true);
             StartCoroutine(delay());
@@ -44,18 +33,7 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
 
         }
-        else if (other.CompareTag("finish"))
-        {
-            // oyun sonu olaylari... animasyon.. score.. panel acip kapatmak
-            // oyunu kazandi mi kaybetti mi kontntrolu gerekirse yapilabilir.
-            // player durdurulur. tagi finish olan obje level prefablarinin icinde yolun sonundadýr.
-            // ornek olarak asagidaki kodda score 10 dan buyukse kazan degilse kaybet dedik ancak
-            // bazý oyunlarda farkli parametlere göre kontrol etmek veya oyun sonunda karakterin yola devam etmesi gibi
-            // durumlarda developer burayý kendisi duzenlemelidir.
-            GameManager.instance.isContinue = false;
-            if (GameManager.instance.levelScore > 10) UiController.instance.OpenWinPanel();
-            else UiController.instance.OpenLosePanel();
-        }
+       
     }
 
     /// <summary>
@@ -76,7 +54,7 @@ public class PlayerController : MonoBehaviour
         RoketManager.instance.cb.enabled = true;
         RoketManager.instance.gaz = 0;
         RoketManager.instance.hiz = 0;
-        RoketManager.instance.mesafe = PlayerPrefs.GetFloat("mesafe");
+        RoketManager.instance.mesafe = PlayerPrefs.GetFloat("mesafe"); ///???
         for (int i = 0; i < SpawnManger.instance.objects.transform.childCount; i++)
         {
             Destroy(SpawnManger.instance.objects.transform.GetChild(i).gameObject);
@@ -85,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(RoketManager.instance.DistanceParent.GetChild(j).gameObject);
         }
-       
+        UiController.instance.interactable();
     }
     public IEnumerator delay()
     {
@@ -105,6 +83,5 @@ public class PlayerController : MonoBehaviour
         UiController.instance.incrementPanel.SetActive(false);
         UiController.instance.tapToStartPanel.SetActive(false);
         SpawnManger.instance.spawn();
-        //RoketManager.instance.cb.enabled = true;
     }
 }
