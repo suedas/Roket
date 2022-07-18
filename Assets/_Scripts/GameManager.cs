@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         if (score>=0)
         {
 			Debug.Log(RoketManager.instance.mesafe);
-            scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe);
+            //scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe);
             score += scoreArtisMiktari;
             levelScore += scoreArtisMiktari;
             PlayerPrefs.SetInt("score", score);

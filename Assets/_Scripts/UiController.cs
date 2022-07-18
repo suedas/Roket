@@ -227,49 +227,54 @@ public class UiController : MonoBehaviour
     }
 	public void interactable()
     {
-		if (PlayerPrefs.HasKey("gaz"))
-		{
+		
 			RoketManager.instance.maxgaz = PlayerPrefs.GetFloat("gaz");
 			if (RoketManager.instance.maxgaz == 0)
 			{
 				RoketManager.instance.maxgaz = 100;
 				RoketManager.instance.levelGaz = 1;
+				RoketManager.instance.gazPara = 50;
+				PlayerPrefs.SetInt("levelgaz", RoketManager.instance.levelGaz);
+				PlayerPrefs.SetInt("gazpara", RoketManager.instance.gazPara);
+
 			}
-			totalGaz.text = "Gaz ";
+			totalGaz.text = "Gas ";
 			levelGaz.text = "Level  " + PlayerPrefs.GetInt("levelgaz").ToString();
-			paraGaz.text = "Para  " + PlayerPrefs.GetInt("gazpara").ToString();
-		}
-		if (PlayerPrefs.HasKey("hiz"))
-		{
+			paraGaz.text = "Money  " + PlayerPrefs.GetInt("gazpara").ToString();
+		
+	
 			RoketManager.instance.hiz = PlayerPrefs.GetFloat("hiz");
 			if (RoketManager.instance.hiz == 0)
 			{
 				RoketManager.instance.hiz = 0;
 				RoketManager.instance.levelHiz = 1;
+				RoketManager.instance.hizPara = 50;
+				PlayerPrefs.SetInt("levelhiz", RoketManager.instance.levelHiz);
+				PlayerPrefs.SetInt("hizpara", RoketManager.instance.hizPara);
+
 
 			}
 			totalHiz.text = "Speed  ";
 			levelHiz.text = "Level  " + PlayerPrefs.GetInt("levelhiz");
 			paraHiz.text = "Money  " + PlayerPrefs.GetInt("hizpara");
-		}
-		if (PlayerPrefs.HasKey("mesafe"))
-		{
+		
+	
+			Debug.Log("mesafe level"+ RoketManager.instance.mesafeLevel);
 			RoketManager.instance.maxMesafe = PlayerPrefs.GetFloat("mesafe");
 			if (RoketManager.instance.maxMesafe == 0)
 			{
+				
 				RoketManager.instance.maxMesafe = 1;
 				RoketManager.instance.mesafeLevel = 1;
+				RoketManager.instance.mesafePara = 50;
+				PlayerPrefs.SetInt("mesafelevel", RoketManager.instance.mesafeLevel);
+				PlayerPrefs.SetInt("mesafepara", RoketManager.instance.mesafePara);
+
 
 			}
 			totalMesafe.text = "Income ";
 			levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel").ToString();
 			paraMesafe.text = "Money  " + PlayerPrefs.GetInt("mesafepara").ToString();
-		}
-
-
-
-
-
 
 
 		incrementPanel.SetActive(true);
