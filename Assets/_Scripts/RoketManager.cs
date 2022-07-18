@@ -73,8 +73,8 @@ public class RoketManager : MonoBehaviour
                 }
                           
             yield return new WaitForSeconds(.2f);
-            Vector3 ts = new Vector3(-1.057f, distance.transform.position.y, 0);
-            Instantiate(distanceImage, ts, Quaternion.Euler(0,0,1.5f),DistanceParent);
+            Vector3 ts = new Vector3(-1.3f, distance.transform.position.y, 0);
+            Instantiate(distanceImage, ts, Quaternion.identity,DistanceParent);
             rb.useGravity = true;
             cb.enabled = false;
             yield return new WaitForSeconds(1f);
