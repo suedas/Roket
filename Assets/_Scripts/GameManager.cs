@@ -26,41 +26,24 @@ public class GameManager : MonoBehaviour
 	}
 
 
-	/// <summary>
-	/// Bu fonksiyon score deðerinin artirilmasi icin kullanilir. 
-	/// Collectiblelara carpinca cagrilir.
-	/// Farkli sekilde kullanmak icin developer kendisi fonksiyonu modifiye etmelidir.
-	/// </summary>
-	public void IncreaseScore()
+
+	public void IncreaseScore(int paraMikatari)
     {
-        if (score>=0)
-        {
 			//Debug.Log(RoketManager.instance.mesafe);
             //scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe);
-            score += scoreArtisMiktari;
-            levelScore += scoreArtisMiktari;
+            score += paraMikatari;
             PlayerPrefs.SetInt("score", score);
-            UiController.instance.SetScoreText();
-        }
-        else
-        {
-            score =0;
-        }
+		UiController.instance.SetScoreText();
 
     }
 
-	/// <summary>
-	/// Bu fonksiyon score deðerinin azaltilmasi icin kullanilir. 
-	/// Obstaclelara carpinca cagrilir.
-	/// Farkli sekilde kullanmak icin developer kendisi fonksiyonu modifiye etmelidir.
-	/// </summary>
-	public void DecreaseScore()
+
+	public void DecreaseScore(int paraMikatari)
     {
         if (score>0)
         {
 			
-			score -= scoreArtisMiktari;
-			levelScore -= scoreArtisMiktari;
+			score -= paraMikatari;
 			PlayerPrefs.SetInt("score", score);
 			UiController.instance.SetScoreText();
 

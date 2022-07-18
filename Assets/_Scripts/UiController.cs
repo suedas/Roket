@@ -106,7 +106,7 @@ public class UiController : MonoBehaviour
 
 	public void SetScoreText()
 	{
-		StartCoroutine(SetScoreTextAnim());
+		scoreText.text = GameManager.instance.score.ToString();
 	}
 
 	// bu fonksiyon sayesinde score textimiz birer birer artýyor veya azalýyor hýzlý þekilde..
@@ -154,8 +154,9 @@ public class UiController : MonoBehaviour
         if (GameManager.instance.score>RoketManager.instance.gazPara)
         {
 			RoketManager.instance.maxgaz += 10;
+			GameManager.instance.DecreaseScore(RoketManager.instance.gazPara);
 			RoketManager.instance.levelGaz = PlayerPrefs.GetInt("levelgaz") +1;
-			RoketManager.instance.gazPara =PlayerPrefs.GetInt("gazpara")+50;
+			RoketManager.instance.gazPara =PlayerPrefs.GetInt("gazpara")+ PlayerPrefs.GetInt("gazpara")/2;
 			GameManager.instance.scoreArtisMiktari = RoketManager.instance.gazPara;
 
 			PlayerPrefs.SetFloat("gaz", RoketManager.instance.maxgaz);
@@ -165,9 +166,9 @@ public class UiController : MonoBehaviour
 			totalGaz.text = "Gas  " ;
 			levelGaz.text = "Level  " + RoketManager.instance.levelGaz;
 			paraGaz.text = "Money  " + RoketManager.instance.gazPara;
-			GameManager.instance.DecreaseScore();
+			interactable();
 
-        }
+		}
         else
         {
 			gazButton.interactable = false;
@@ -179,8 +180,9 @@ public class UiController : MonoBehaviour
 		if (GameManager.instance.score > RoketManager.instance.hizPara)
 		{
 			RoketManager.instance.hiz += 1;
+			GameManager.instance.DecreaseScore(RoketManager.instance.hizPara);
 			RoketManager.instance.levelHiz = PlayerPrefs.GetInt("levelhiz") + 1;
-			RoketManager.instance.hizPara = PlayerPrefs.GetInt("hizpara") + 50;
+			RoketManager.instance.hizPara = PlayerPrefs.GetInt("hizpara") + PlayerPrefs.GetInt("hizpara")/2;
 
 
 			PlayerPrefs.SetFloat("hiz", RoketManager.instance.hiz);
@@ -190,7 +192,7 @@ public class UiController : MonoBehaviour
 			totalHiz.text = "Speed  ";
 			levelHiz.text = "Level  " + RoketManager.instance.levelHiz.ToString();
 			paraHiz.text = "Money  " + RoketManager.instance.hizPara.ToString();
-			GameManager.instance.DecreaseScore();
+			interactable();
 
 		}
         else
@@ -205,18 +207,19 @@ public class UiController : MonoBehaviour
         {
 			//RoketManager.instance.maxMesafe += 1;
 			//RoketManager.instance.mesafe += 2;
-			RoketManager.instance.maxMesafe = PlayerPrefs.GetFloat("mesafe")+1;
+			GameManager.instance.DecreaseScore(RoketManager.instance.mesafePara);
+			RoketManager.instance.income = PlayerPrefs.GetFloat("mesafe")+1;
 			RoketManager.instance.mesafeLevel = PlayerPrefs.GetInt("mesafelevel")+1;
-			RoketManager.instance.mesafePara = PlayerPrefs.GetInt("mesafepara")+50;
+			RoketManager.instance.mesafePara = PlayerPrefs.GetInt("mesafepara")+ PlayerPrefs.GetInt("mesafepara")/2;
 
-			PlayerPrefs.SetFloat("mesafe", RoketManager.instance.maxMesafe);
+			PlayerPrefs.SetFloat("mesafe", RoketManager.instance.income);
 			PlayerPrefs.SetInt("mesafelevel", RoketManager.instance.mesafeLevel);
 			PlayerPrefs.SetInt("mesafepara", RoketManager.instance.mesafePara);
 
 			totalMesafe.text = "Income  ";
 			levelMesafe.text = "Level  " + RoketManager.instance.mesafeLevel.ToString();
 			paraMesafe.text = "Money  " + RoketManager.instance.mesafePara.ToString();
-			GameManager.instance.DecreaseScore();
+			interactable();
 		}
         else
         {
@@ -228,53 +231,65 @@ public class UiController : MonoBehaviour
 	public void interactable()
     {
 		
-			RoketManager.instance.maxgaz = PlayerPrefs.GetFloat("gaz");
-			if (RoketManager.instance.maxgaz == 0)
-			{
-				RoketManager.instance.maxgaz = 100;
-				RoketManager.instance.levelGaz = 1;
-				RoketManager.instance.gazPara = 50;
-				PlayerPrefs.SetInt("levelgaz", RoketManager.instance.levelGaz);
-				PlayerPrefs.SetInt("gazpara", RoketManager.instance.gazPara);
+		RoketManager.instance.maxgaz = PlayerPrefs.GetFloat("gaz");
+		if (RoketManager.instance.maxgaz == 0)
+		{
+			RoketManager.instance.maxgaz = 100;
+			RoketManager.instance.levelGaz = 1;
+			RoketManager.instance.gazPara = 10;
+			PlayerPrefs.SetInt("levelgaz", RoketManager.instance.levelGaz);
+			PlayerPrefs.SetInt("gazpara", RoketManager.instance.gazPara);
 
-			}
-			totalGaz.text = "Gas ";
-			levelGaz.text = "Level  " + PlayerPrefs.GetInt("levelgaz").ToString();
-			paraGaz.text = "Money  " + PlayerPrefs.GetInt("gazpara").ToString();
+		}
+		else
+		{
+			RoketManager.instance.levelGaz = PlayerPrefs.GetInt("levelgaz");
+			RoketManager.instance.gazPara = PlayerPrefs.GetInt("gazpara");
+		}
+		totalGaz.text = "Gas ";
+		levelGaz.text = "Level  " + PlayerPrefs.GetInt("levelgaz").ToString();
+		paraGaz.text = "Money  " + PlayerPrefs.GetInt("gazpara").ToString();
 		
 	
-			RoketManager.instance.hiz = PlayerPrefs.GetFloat("hiz");
-			if (RoketManager.instance.hiz == 0)
-			{
-				RoketManager.instance.hiz = 0;
-				RoketManager.instance.levelHiz = 1;
-				RoketManager.instance.hizPara = 50;
-				PlayerPrefs.SetInt("levelhiz", RoketManager.instance.levelHiz);
-				PlayerPrefs.SetInt("hizpara", RoketManager.instance.hizPara);
-
-
-			}
-			totalHiz.text = "Speed  ";
-			levelHiz.text = "Level  " + PlayerPrefs.GetInt("levelhiz");
-			paraHiz.text = "Money  " + PlayerPrefs.GetInt("hizpara");
+		RoketManager.instance.hiz = PlayerPrefs.GetFloat("hiz");
+		if (RoketManager.instance.hiz == 0)
+		{
+			RoketManager.instance.hiz = 0;
+			RoketManager.instance.levelHiz = 1;
+			RoketManager.instance.hizPara = 10;
+			PlayerPrefs.SetInt("levelhiz", RoketManager.instance.levelHiz);
+			PlayerPrefs.SetInt("hizpara", RoketManager.instance.hizPara);
+		}
+		else
+		{
+			RoketManager.instance.levelHiz = PlayerPrefs.GetInt("levelhiz");
+			RoketManager.instance.hizPara = PlayerPrefs.GetInt("hizpara");
+		}
+		totalHiz.text = "Speed  ";
+		levelHiz.text = "Level  " + PlayerPrefs.GetInt("levelhiz");
+		paraHiz.text = "Money  " + PlayerPrefs.GetInt("hizpara");
 		
 	
-			//Debug.Log("mesafe level"+ RoketManager.instance.mesafeLevel);
-			RoketManager.instance.maxMesafe = PlayerPrefs.GetFloat("mesafe");
-			if (RoketManager.instance.maxMesafe == 0)
-			{
+		//Debug.Log("mesafe level"+ RoketManager.instance.mesafeLevel);
+		RoketManager.instance.income = PlayerPrefs.GetFloat("mesafe");
+		if (RoketManager.instance.income == 0)
+		{
 				
-				RoketManager.instance.maxMesafe = 1;
-				RoketManager.instance.mesafeLevel = 1;
-				RoketManager.instance.mesafePara = 50;
-				PlayerPrefs.SetInt("mesafelevel", RoketManager.instance.mesafeLevel);
-				PlayerPrefs.SetInt("mesafepara", RoketManager.instance.mesafePara);
-
-
-			}
-			totalMesafe.text = "Income ";
-			levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel").ToString();
-			paraMesafe.text = "Money  " + PlayerPrefs.GetInt("mesafepara").ToString();
+			RoketManager.instance.income = 1;
+			RoketManager.instance.mesafeLevel = 1;
+			RoketManager.instance.mesafePara = 10;
+			PlayerPrefs.SetInt("mesafelevel", RoketManager.instance.mesafeLevel);
+			PlayerPrefs.SetInt("mesafepara", RoketManager.instance.mesafePara);
+			PlayerPrefs.SetFloat("mesafe", RoketManager.instance.income);
+		}
+		else
+		{
+			RoketManager.instance.mesafeLevel = PlayerPrefs.GetInt("mesafelevel");
+			RoketManager.instance.mesafePara = PlayerPrefs.GetInt("mesafepara");
+		}
+		totalMesafe.text = "Income ";
+		levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel").ToString();
+		paraMesafe.text = "Money  " + PlayerPrefs.GetInt("mesafepara").ToString();
 
 
 		incrementPanel.SetActive(true);

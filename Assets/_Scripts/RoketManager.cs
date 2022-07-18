@@ -25,7 +25,7 @@ public class RoketManager : MonoBehaviour
     public int hizPara = 50;
     public float maxhiz = 10;
     public float mesafe;
-    public float maxMesafe=1;
+    public float income=1;
     public int mesafeLevel=1;
     public int mesafePara=50;
     public Rigidbody rb;
@@ -39,7 +39,6 @@ public class RoketManager : MonoBehaviour
     public IEnumerator firlat()
     {
         rb = GetComponent<Rigidbody>();
-        float  y= transform.position.y;
         if (GameManager.instance.isContinue)
         {
             while (gaz <maxgaz)
@@ -61,11 +60,10 @@ public class RoketManager : MonoBehaviour
                 
             }
             UiController.instance.particleGas.SetActive(false);
-
             yield return new WaitForSeconds(.5f);
             mesafe = transform.position.y;
-            Highscore = Convert.ToInt32(mesafe * maxMesafe);
-            distanceImage.GetComponent<TextMeshPro>().text = Convert.ToInt32(mesafe * maxMesafe) + "m";
+            Highscore = Convert.ToInt32(mesafe * income);
+            distanceImage.GetComponent<TextMeshPro>().text = (int)mesafe * (int)income + "m";
            
                 if (Highscore > PlayerPrefs.GetInt("highscore"))
                 {
@@ -82,8 +80,7 @@ public class RoketManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             //Debug.Log("winpanelden sonra =" + maxMesafe);
             Debug.Log("win panelden sonra measafe" + mesafe);
-            GameManager.instance.scoreArtisMiktari = Convert.ToInt32(mesafe * maxMesafe);
-            GameManager.instance.IncreaseScore();
+            GameManager.instance.IncreaseScore(Convert.ToInt32(mesafe * income));
             //if (GameManager.instance.score==0)
             //{
             //    Debug.Log("score 0 burda þuan");
