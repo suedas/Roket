@@ -25,7 +25,7 @@ public class UiController : MonoBehaviour
 	{
 		//PlayerPrefs.DeleteAll();
 		interactable();
-		Debug.Log(RoketManager.instance.maxMesafe);
+		//Debug.Log(RoketManager.instance.maxMesafe);
 		particleGas.SetActive(false);
         //if (RoketManager.instance.gazPara > GameManager.instance.score)
         //{
@@ -259,7 +259,7 @@ public class UiController : MonoBehaviour
 			paraHiz.text = "Money  " + PlayerPrefs.GetInt("hizpara");
 		
 	
-			Debug.Log("mesafe level"+ RoketManager.instance.mesafeLevel);
+			//Debug.Log("mesafe level"+ RoketManager.instance.mesafeLevel);
 			RoketManager.instance.maxMesafe = PlayerPrefs.GetFloat("mesafe");
 			if (RoketManager.instance.maxMesafe == 0)
 			{

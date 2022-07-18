@@ -80,7 +80,7 @@ public class RoketManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             UiController.instance.OpenWinPanel();
             yield return new WaitForSeconds(1f);
-            Debug.Log("winpanelden sonra =" + maxMesafe);
+            //Debug.Log("winpanelden sonra =" + maxMesafe);
             Debug.Log("win panelden sonra measafe" + mesafe);
             GameManager.instance.scoreArtisMiktari = Convert.ToInt32(mesafe * maxMesafe);
             GameManager.instance.IncreaseScore();
