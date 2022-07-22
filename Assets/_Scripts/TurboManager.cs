@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class TurboManager : MonoBehaviour
 {
     #region Singleton
@@ -15,6 +15,8 @@ public class TurboManager : MonoBehaviour
 
     public float beklemeSüresi;
     public int turbo;
+    public CinemachineVirtualCamera vcam;
+
     void Update()
     {
         //UiController.instance.slider.value = RoketManager.instance.maxgaz - RoketManager.instance.gaz;
@@ -26,7 +28,7 @@ public class TurboManager : MonoBehaviour
                 //PlayerController.instance.particleObs.SetActive(false);
                 UiController.instance.particleGas.SetActive(false);
                 UiController.instance.turboParticle.SetActive(true);
-
+                StartCoroutine(Shake());
                 beklemeSüresi += Time.fixedDeltaTime;
                 if (beklemeSüresi>.2f)
                 {
@@ -57,5 +59,13 @@ public class TurboManager : MonoBehaviour
         }
 
         
+    }
+    public  IEnumerator Shake()
+    {
+        vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 1;
+        vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 1;
+        yield return new WaitForSeconds(0.5f);
+        vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+        vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0;
     }
 }
