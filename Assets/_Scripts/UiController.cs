@@ -19,7 +19,7 @@ public class UiController : MonoBehaviour
 	public TextMeshProUGUI scoreText,levelText,levelGaz,levelHiz,paraGaz,paraHiz,levelMesafe,paraMesafe,totalGaz,totalHiz,totalMesafe,highScore;
 	public Button gazButton, hizButton, mesafeButton;
 	public Slider slider,turboslider;
-	public GameObject particleGas;
+	public GameObject particleGas,turboParticle;
 
 	private void Start()
 	{
@@ -42,6 +42,7 @@ public class UiController : MonoBehaviour
         //}
         slider.maxValue = RoketManager.instance.maxgaz;
 		slider.minValue = RoketManager.instance.gaz;
+		slider.value = RoketManager.instance.maxgaz;
 
 
 		//if (PlayerPrefs.HasKey("gaz"))
