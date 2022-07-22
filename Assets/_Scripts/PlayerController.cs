@@ -81,6 +81,6 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(RoketManager.instance.firlat());
         UiController.instance.incrementPanel.SetActive(false);
         UiController.instance.tapToStartPanel.SetActive(false);
-        SpawnManger.instance.spawn();
+        
     }
 }

@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class TurboManager : MonoBehaviour
 {
-   
+    #region Singleton
+    public static TurboManager instance;
+    void Awake()
+    {
+        if (instance == null) instance = this;
+        else Destroy(this);
+    }
+    #endregion
+
     public float beklemeSüresi;
     public int turbo;
     void Update()
@@ -36,6 +44,7 @@ public class TurboManager : MonoBehaviour
 
             RoketManager.instance.hiz += 5;
             turbo--;
+            UiController.instance.turboslider.value = turbo;
             Debug.Log(turbo);
         }
 

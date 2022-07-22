@@ -18,7 +18,7 @@ public class UiController : MonoBehaviour
 	public GameObject winPanel, gamePanel, losePanel,tapToStartPanel,incrementPanel;
 	public TextMeshProUGUI scoreText,levelText,levelGaz,levelHiz,paraGaz,paraHiz,levelMesafe,paraMesafe,totalGaz,totalHiz,totalMesafe,highScore;
 	public Button gazButton, hizButton, mesafeButton;
-	public Slider slider;
+	public Slider slider,turboslider;
 	public GameObject particleGas;
 
 	private void Start()
@@ -40,9 +40,10 @@ public class UiController : MonoBehaviour
         //{
         //    mesafeButton.interactable = false;
         //}
-        
-		UiController.instance.slider.maxValue = RoketManager.instance.maxgaz;
-		UiController.instance.slider.minValue = RoketManager.instance.gaz;
+        slider.maxValue = RoketManager.instance.maxgaz;
+		slider.minValue = RoketManager.instance.gaz;
+
+
 		//if (PlayerPrefs.HasKey("gaz"))
 		//{
 		//	RoketManager.instance.maxgaz = PlayerPrefs.GetFloat("gaz");
@@ -75,7 +76,7 @@ public class UiController : MonoBehaviour
 		//	{
 		//		RoketManager.instance.maxMesafe = 1;
 		//		RoketManager.instance.mesafeLevel = 1;
-	
+
 		//	}
 		//	totalMesafe.text = "Mesafe  " ;
 		//	levelMesafe.text = "Level  " + PlayerPrefs.GetInt("mesafelevel").ToString();
@@ -141,12 +142,6 @@ public class UiController : MonoBehaviour
 	
 		winPanel.SetActive(true);
 		highScore.text = "High Score  "+PlayerPrefs.GetInt("highscore").ToString();
-		for (int i = 0; i < SpawnManger.instance.objects.transform.childCount; i++) 
-		{
-			Destroy(SpawnManger.instance.objects.transform.GetChild(i).gameObject);
-		}
-		
-
 	}
 
 
