@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 	{
 		isContinue = false;
 		score = PlayerPrefs.GetInt("score");
+	
 	}
 
 

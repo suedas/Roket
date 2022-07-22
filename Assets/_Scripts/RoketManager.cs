@@ -16,7 +16,7 @@ public class RoketManager : MonoBehaviour
     }
     #endregion
 
-    public float gaz = 0;
+    public int gaz = 0;
     public int levelGaz=1;
     public int gazPara=50;
     public float maxgaz = 100;
@@ -53,7 +53,7 @@ public class RoketManager : MonoBehaviour
                     hiz -= 0.2f;
                 }
                 //UiController.instance.particleGas.SetActive(false);
-                gaz += 1f;
+                gaz += 1;
                 rb.velocity = new Vector3(0, hiz, 0);
                 target.GetComponent<Rigidbody>().velocity= new Vector3(target.transform.position.x, hiz,target.transform.position.z);
                 yield return new WaitForEndOfFrame();

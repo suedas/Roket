@@ -169,7 +169,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5, y: 1}
+    m_SensorSize: {x: 0.4198783, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5096,10 +5096,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.7914662
+  m_Radius: 0.5234539
   m_Height: 3.1525197
   m_Direction: 1
-  m_Center: {x: 0, y: -0.57625985, z: -0.29146618}
+  m_Center: {x: 0, y: -0.57625985, z: -0.55947846}
 --- !u!23 &1597856533
 MeshRenderer:
   m_ObjectHideFlags: 0

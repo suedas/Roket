@@ -17,7 +17,6 @@ public class SwerveMovement : MonoBehaviour
 
     private void Update()
     {
-       UiController.instance.slider.value=RoketManager.instance.maxgaz-RoketManager.instance.gaz;
       
 
         if (GameManager.instance.isContinue==true)
