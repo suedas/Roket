@@ -145,10 +145,7 @@ public class UiController : MonoBehaviour
 		{
 			Destroy(SpawnManger.instance.objects.transform.GetChild(i).gameObject);
 		}
-		for (int j = 0; j < RoketManager.instance.DistanceParent.transform.childCount; j++)
-		{
-			Destroy(RoketManager.instance.DistanceParent.GetChild(j).gameObject);
-		}
+		
 
 	}
 

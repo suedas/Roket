@@ -53,15 +53,15 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.isContinue = false;
         RoketManager.instance.cb.enabled = true;
         RoketManager.instance.gaz = 0;
-        RoketManager.instance.hiz = 0; 
+        RoketManager.instance.hiz = 0;
         //for (int i = 0; i < SpawnManger.instance.objects.transform.childCount; i++)
         //{
         //    Destroy(SpawnManger.instance.objects.transform.GetChild(i).gameObject);
         //}
-        //for (int j = 0; j < RoketManager.instance.DistanceParent.transform.childCount; j++)
-        //{
-        //    Destroy(RoketManager.instance.DistanceParent.GetChild(j).gameObject);
-        //}
+        for (int j = 0; j < RoketManager.instance.DistanceParent.transform.childCount; j++)
+        {
+            Destroy(RoketManager.instance.DistanceParent.GetChild(j).gameObject);
+        }
         UiController.instance.interactable();
     }
     public IEnumerator delay()

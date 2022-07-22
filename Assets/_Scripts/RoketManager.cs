@@ -57,7 +57,8 @@ public class RoketManager : MonoBehaviour
                 rb.velocity = new Vector3(0, hiz, 0);
                 target.GetComponent<Rigidbody>().velocity= new Vector3(target.transform.position.x, hiz,target.transform.position.z);
                 yield return new WaitForEndOfFrame();
-                
+                UiController.instance.slider.value = maxgaz - gaz;
+
             }
             UiController.instance.particleGas.SetActive(false);
             yield return new WaitForSeconds(.5f);
@@ -71,11 +72,20 @@ public class RoketManager : MonoBehaviour
                 }
                           
             yield return new WaitForSeconds(.2f);
-            Vector3 ts = new Vector3(-1.3f, distance.transform.position.y, 0);
-            Instantiate(distanceImage, ts, Quaternion.identity,DistanceParent);
             rb.useGravity = true;
+            while (rb.velocity.y>=0)
+            {
+                yield return new WaitForEndOfFrame();
+                if (rb.velocity.y<=0)
+                {
+                    Vector3 ts = new Vector3(-1.3f, distance.transform.position.y, 0);
+                    Instantiate(distanceImage, ts, Quaternion.identity,DistanceParent);
+                }
+               
+            }
+           
             cb.enabled = false;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             UiController.instance.OpenWinPanel();
             yield return new WaitForSeconds(1f);
             //Debug.Log("winpanelden sonra =" + maxMesafe);

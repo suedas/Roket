@@ -6,10 +6,10 @@ public class TurboManager : MonoBehaviour
 {
    
     public float beklemeSüresi;
-    public int turbo=5;
+    public int turbo;
     void Update()
     {
-        UiController.instance.slider.value = RoketManager.instance.maxgaz - RoketManager.instance.gaz;
+        //UiController.instance.slider.value = RoketManager.instance.maxgaz - RoketManager.instance.gaz;
 
         if (GameManager.instance.isContinue == true)
         {
