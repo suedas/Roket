@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 843cbdd4f05e7944d9dc9cf3b651c6f9
+guid: 326ab743f67a6d440a4d48a89ff2c472
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: govde
-    second: {fileID: 2100000, guid: 1702cf3fa0790f54682f9a29db9aa348, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
