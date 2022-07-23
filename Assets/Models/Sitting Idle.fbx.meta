@@ -1,0 +1,258 @@
+fileFormatVersion: 2
+guid: 42491d17e982277448d23d6927d31ae8
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: -8833108483329337075
+    second: Box001|Box001|Take 001|BaseLayer
+  - first:
+      74: -335005203749843511
+    second: Box001|Object001|Take 001|BaseLayer
+  - first:
+      74: -781971369147978075
+    second: Box001|Object002|Take 001|BaseLayer
+  - first:
+      74: -5335570161829796253
+    second: Box001|Object003|Take 001|BaseLayer
+  - first:
+      74: 3843510985617265877
+    second: Box001|Object004|Take 001|BaseLayer
+  - first:
+      74: -1852327512953922292
+    second: Box001|Omni001|Take 001|BaseLayer
+  - first:
+      74: 5307242621748556030
+    second: Box001|Omni002|Take 001|BaseLayer
+  - first:
+      74: 7910466726605981974
+    second: Box001|Omni003|Take 001|BaseLayer
+  - first:
+      74: 4999097765918715458
+    second: Box001|PhysCamera001.Target|Take 001|BaseLayer
+  - first:
+      74: -7794795495782788550
+    second: Box001|PhysCamera001|Take 001|BaseLayer
+  - first:
+      74: -784328932569668969
+    second: Object001|Box001|Take 001|BaseLayer
+  - first:
+      74: -1951999145027632924
+    second: Object001|Object001|Take 001|BaseLayer
+  - first:
+      74: -4926166871046787513
+    second: Object001|Object002|Take 001|BaseLayer
+  - first:
+      74: -731982362827399329
+    second: Object001|Object003|Take 001|BaseLayer
+  - first:
+      74: -7629256502982315473
+    second: Object001|Object004|Take 001|BaseLayer
+  - first:
+      74: 1060897311036280392
+    second: Object001|Omni001|Take 001|BaseLayer
+  - first:
+      74: 5256923635730314640
+    second: Object001|Omni002|Take 001|BaseLayer
+  - first:
+      74: 2837383534431371149
+    second: Object001|Omni003|Take 001|BaseLayer
+  - first:
+      74: -3678102361857693260
+    second: Object001|PhysCamera001.Target|Take 001|BaseLayer
+  - first:
+      74: 2376366282276118095
+    second: Object001|PhysCamera001|Take 001|BaseLayer
+  - first:
+      74: 767974691635756992
+    second: Object002|Box001|Take 001|BaseLayer
+  - first:
+      74: -4947253048100400662
+    second: Object002|Object001|Take 001|BaseLayer
+  - first:
+      74: -8793137844476560109
+    second: Object002|Object002|Take 001|BaseLayer
+  - first:
+      74: -7422116193782569785
+    second: Object002|Object003|Take 001|BaseLayer
+  - first:
+      74: -3472773480271691196
+    second: Object002|Object004|Take 001|BaseLayer
+  - first:
+      74: 103743708850749307
+    second: Object002|Omni001|Take 001|BaseLayer
+  - first:
+      74: -1547952699529494304
+    second: Object002|Omni002|Take 001|BaseLayer
+  - first:
+      74: -3921388459615285767
+    second: Object002|Omni003|Take 001|BaseLayer
+  - first:
+      74: -3690349209404894237
+    second: Object002|PhysCamera001.Target|Take 001|BaseLayer
+  - first:
+      74: 6139065248777068875
+    second: Object002|PhysCamera001|Take 001|BaseLayer
+  - first:
+      74: -321467558336998784
+    second: Object003|Box001|Take 001|BaseLayer
+  - first:
+      74: -1712851994479065620
+    second: Object003|Object001|Take 001|BaseLayer
+  - first:
+      74: 7646037920478378391
+    second: Object003|Object002|Take 001|BaseLayer
+  - first:
+      74: 5022597664044783739
+    second: Object003|Object003|Take 001|BaseLayer
+  - first:
+      74: -7089781994532905240
+    second: Object003|Object004|Take 001|BaseLayer
+  - first:
+      74: 6825266578772771261
+    second: Object003|Omni001|Take 001|BaseLayer
+  - first:
+      74: 11076960517188389
+    second: Object003|Omni002|Take 001|BaseLayer
+  - first:
+      74: 9046121318317829450
+    second: Object003|Omni003|Take 001|BaseLayer
+  - first:
+      74: -978526406716320181
+    second: Object003|PhysCamera001.Target|Take 001|BaseLayer
+  - first:
+      74: -1435161783233960019
+    second: Object003|PhysCamera001|Take 001|BaseLayer
+  - first:
+      74: 7224801875284790229
+    second: Object004|Box001|Take 001|BaseLayer
+  - first:
+      74: -5240322020457215304
+    second: Object004|Object001|Take 001|BaseLayer
+  - first:
+      74: -7287475286165978110
+    second: Object004|Object002|Take 001|BaseLayer
+  - first:
+      74: -5883686201512326528
+    second: Object004|Object003|Take 001|BaseLayer
+  - first:
+      74: -5579148606572955041
+    second: Object004|Object004|Take 001|BaseLayer
+  - first:
+      74: -7261739778883990175
+    second: Object004|Omni001|Take 001|BaseLayer
+  - first:
+      74: 4455781770431871572
+    second: Object004|Omni002|Take 001|BaseLayer
+  - first:
+      74: 7209154869354123645
+    second: Object004|Omni003|Take 001|BaseLayer
+  - first:
+      74: 2216655180914401711
+    second: Object004|PhysCamera001.Target|Take 001|BaseLayer
+  - first:
+      74: 4211662640987670401
+    second: Object004|PhysCamera001|Take 001|BaseLayer
+  - first:
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 0
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

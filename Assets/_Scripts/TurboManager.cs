@@ -26,8 +26,7 @@ public class TurboManager : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 //PlayerController.instance.particleObs.SetActive(false);
-                UiController.instance.particleGas.SetActive(false);
-                UiController.instance.turboParticle.SetActive(true);
+            
                 StartCoroutine(Shake());
                 beklemeSüresi += Time.fixedDeltaTime;
                 if (beklemeSüresi>.2f)
@@ -56,6 +55,13 @@ public class TurboManager : MonoBehaviour
             turbo--;
             UiController.instance.turboslider.value = turbo;
             Debug.Log(turbo);
+            UiController.instance.particleGas.SetActive(false);
+            UiController.instance.turboParticle.SetActive(true);
+        }
+        else
+        {
+            UiController.instance.particleGas.SetActive(true);
+            UiController.instance.turboParticle.SetActive(false);
         }
 
         
