@@ -41,7 +41,7 @@ public class RoketManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (GameManager.instance.isContinue)
         {
-            while (gaz <maxgaz)
+            while (gaz <maxgaz) 
             {
                 if (gaz<maxgaz/10 && hiz<maxhiz)
                 {

@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 			//Debug.Log(RoketManager.instance.mesafe);
             //scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe);
             score += paraMikatari;
+		     score *= 10; // burasý silinecek.... !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             PlayerPrefs.SetInt("score", score);
 		UiController.instance.SetScoreText();
 
