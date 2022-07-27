@@ -53,10 +53,11 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.isContinue = false;
         RoketManager.instance.cb.enabled = true;
         RoketManager.instance.gaz = 0;
-        RoketManager.instance.hiz = 0;
         UiController.instance.particleGas.SetActive(false);
-        TurboManager.instance.turbo = 5;
-        UiController.instance.turboslider.value = 5;
+        UiController.instance.slider.value = RoketManager.instance.maxgaz;
+        StopCoroutine(TurboManager.instance.SliderSet());
+        TurboManager.instance.turbo = TurboManager.instance.maxTurbo;
+        UiController.instance.turboslider.value = TurboManager.instance.maxTurbo;
         //for (int i = 0; i < SpawnManger.instance.objects.transform.childCount; i++)
         //{
         //    Destroy(SpawnManger.instance.objects.transform.GetChild(i).gameObject);

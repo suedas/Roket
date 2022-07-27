@@ -48,15 +48,16 @@ public class RoketManager : MonoBehaviour
                     hiz += .5f;
                 }
            
-                else if (gaz>maxgaz*9/10)
+                else if (gaz>maxgaz*8/10)
                 {
-                    hiz -= 0.2f;
+                    hiz -= 0.3f;
                 }
                 //UiController.instance.particleGas.SetActive(false);
                 gaz += 1;
                 rb.velocity = new Vector3(0, hiz, 0);
                 target.GetComponent<Rigidbody>().velocity= new Vector3(target.transform.position.x, hiz,target.transform.position.z);
-                yield return new WaitForEndOfFrame();
+                 //yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(0.012f);
                 UiController.instance.slider.value = maxgaz - gaz;
 
             }
