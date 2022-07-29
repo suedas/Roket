@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void PreStartingEvents()
     {
-
+        UiController.instance.interactable();
         RoketManager.instance.rb.useGravity = false;
         RoketManager.instance.rb.velocity = Vector3.zero;
         RoketManager.instance.target.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(RoketManager.instance.DistanceParent.GetChild(j).gameObject);
         }
-        UiController.instance.interactable();
+        
     }
     public IEnumerator delay()
     {

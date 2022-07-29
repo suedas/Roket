@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		isContinue = false;
+		//PlayerPrefs.DeleteAll();
+		//PlayerPrefs.SetInt("score", 100000000);
 		score = PlayerPrefs.GetInt("score");
 	
 	}
@@ -32,10 +34,13 @@ public class GameManager : MonoBehaviour
     {
 			//Debug.Log(RoketManager.instance.mesafe);
             //scoreArtisMiktari = Convert.ToInt32(RoketManager.instance.mesafe * RoketManager.instance.maxMesafe);
-            score += paraMikatari;
-		     score *= 10; // burasý silinecek.... !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            PlayerPrefs.SetInt("score", score);
-		UiController.instance.SetScoreText();
+		if(paraMikatari > 0)
+		{
+			score += paraMikatari;
+			PlayerPrefs.SetInt("score", score);
+			UiController.instance.SetScoreText();
+		}
+		
 
     }
 

@@ -54,7 +54,7 @@ public class TurboManager : MonoBehaviour
                 beklemeSüresi = 0;
                 UiController.instance.particleGas.SetActive(true);
                 UiController.instance.turboParticle.SetActive(false);
-                TurboSonrasi();
+                StartCoroutine(TurboSonrasi());
 
             }
         }
@@ -72,6 +72,7 @@ public class TurboManager : MonoBehaviour
 
     public void Turbo()
     {
+        UiController.instance.uiHand.SetActive(false);
         StopCoroutine(SliderSet());
         StartCoroutine(SliderSet());
         if (RoketManager.instance.gaz>0 && turbo>0)
@@ -85,7 +86,7 @@ public class TurboManager : MonoBehaviour
         }
         else
         {
-            TurboSonrasi();
+           StartCoroutine( TurboSonrasi());
             UiController.instance.particleGas.SetActive(true);
             UiController.instance.turboParticle.SetActive(false);
         }
@@ -101,9 +102,14 @@ public class TurboManager : MonoBehaviour
         vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0;
     }
 
-    void TurboSonrasi()
+    IEnumerator TurboSonrasi()
 	{
-        float hiz = PlayerPrefs.GetFloat("hiz");
-        RoketManager.instance.hiz = hiz;
+        float tempHiz = PlayerPrefs.GetFloat("hiz");
+		while (tempHiz < RoketManager.instance.hiz)
+		{
+            RoketManager.instance.hiz -= .2f;
+            yield return new WaitForSeconds(.05f);
+		}
+
 	}
 }

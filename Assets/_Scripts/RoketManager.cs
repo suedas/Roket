@@ -38,6 +38,7 @@ public class RoketManager : MonoBehaviour
    // public TextMeshProUGUI distanceText;
     public IEnumerator firlat()
     {
+        UiController.instance.uiHand.SetActive(true);
         rb = GetComponent<Rigidbody>();
         if (GameManager.instance.isContinue)
         {
@@ -53,7 +54,7 @@ public class RoketManager : MonoBehaviour
                     hiz -= 0.3f;
                 }
                 //UiController.instance.particleGas.SetActive(false);
-                gaz += 1;
+                gaz += 2;
                 rb.velocity = new Vector3(0, hiz, 0);
                 target.GetComponent<Rigidbody>().velocity= new Vector3(target.transform.position.x, hiz,target.transform.position.z);
                  //yield return new WaitForEndOfFrame();
@@ -64,8 +65,8 @@ public class RoketManager : MonoBehaviour
             UiController.instance.particleGas.SetActive(false);
             yield return new WaitForSeconds(.5f);
             mesafe = transform.position.y;
-            Highscore = Convert.ToInt32(mesafe * income);
-            distanceImage.GetComponent<TextMeshPro>().text = (int)mesafe * (int)income + "m";
+            Highscore = Convert.ToInt32(mesafe);
+            distanceImage.GetComponent<TextMeshPro>().text = (int)mesafe  + "m";
            
                 if (Highscore > PlayerPrefs.GetInt("highscore"))
                 {
@@ -88,9 +89,6 @@ public class RoketManager : MonoBehaviour
             cb.enabled = false;
             yield return new WaitForSeconds(2f);
             UiController.instance.OpenWinPanel();
-            yield return new WaitForSeconds(1f);
-            //Debug.Log("winpanelden sonra =" + maxMesafe);
-            Debug.Log("win panelden sonra measafe" + mesafe);
             GameManager.instance.IncreaseScore(Convert.ToInt32(mesafe * income));
             //if (GameManager.instance.score==0)
             //{
