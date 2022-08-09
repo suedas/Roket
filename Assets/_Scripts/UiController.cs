@@ -24,7 +24,7 @@ public class UiController : MonoBehaviour
 
 	private void Start()
 	{
-
+		//PlayerPrefs.DeleteAll();
 		interactable();
 		//Debug.Log(RoketManager.instance.maxMesafe);
 		particleGas.SetActive(false);
