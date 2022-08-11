@@ -3,7 +3,52 @@ guid: 103563e402a5c4145b62020b0d6a4264
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red
+    second: {fileID: 2100000, guid: e1f7a4beaccf842febeeb7c759f119c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yelo
+    second: {fileID: 2100000, guid: e8c9cf42b0af84af58f6d9c41f024d8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: basket
+    second: {fileID: 2100000, guid: 88542bf88d90145e99642d66c2969744, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blu
+    second: {fileID: 2100000, guid: bf02260f0c2704f2cb34ad5fb15ea544, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: green
+    second: {fileID: 2100000, guid: d4954f29ebb334b08a03231dbbd93eca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: orange
+    second: {fileID: 2100000, guid: 3f40fef2e4b9a46978153473ed0594c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pink
+    second: {fileID: 2100000, guid: bb36b6b2f0f7544f38a1b7b4ade6144b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rope
+    second: {fileID: 2100000, guid: 1ba3ff017073f4f55b116aeb4f31456a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yellow
+    second: {fileID: 2100000, guid: 296f44fbf99bf4a358d0f718c4db034d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
