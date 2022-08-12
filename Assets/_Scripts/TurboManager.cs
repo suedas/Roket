@@ -16,7 +16,7 @@ public class TurboManager : MonoBehaviour
     public float beklemeSüresi;
     [HideInInspector]public int turbo;
     [HideInInspector]public int maxTurbo;
-
+    public Animator playerAnimator;
     public CinemachineVirtualCamera vcam;
 
 	private void Start()
@@ -33,6 +33,10 @@ public class TurboManager : MonoBehaviour
 
         if (GameManager.instance.isContinue == true)
         {
+            if(Input.GetMouseButtonDown(0) && turbo > 0)
+			{
+                playerAnimator.SetTrigger("bak");
+			}
 
             if (Input.GetMouseButton(0))
             {

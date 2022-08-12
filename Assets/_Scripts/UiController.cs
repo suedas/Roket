@@ -153,7 +153,7 @@ public class UiController : MonoBehaviour
 	}
 	public void gaz() 
 	{
-        if (GameManager.instance.score>RoketManager.instance.gazPara)
+        if (GameManager.instance.score>=RoketManager.instance.gazPara)
         {
 			RoketManager.instance.maxgaz += 10;
 			GameManager.instance.DecreaseScore(RoketManager.instance.gazPara);
@@ -180,7 +180,7 @@ public class UiController : MonoBehaviour
     }
 	public void hiz()
     {
-		if (GameManager.instance.score > RoketManager.instance.hizPara)
+		if (GameManager.instance.score >= RoketManager.instance.hizPara)
 		{
 			RoketManager.instance.hiz += 1;
 			GameManager.instance.DecreaseScore(RoketManager.instance.hizPara);
