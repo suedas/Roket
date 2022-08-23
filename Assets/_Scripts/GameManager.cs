@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		isContinue = false;
-		//PlayerPrefs.DeleteAll();
-		//PlayerPrefs.SetInt("score", 100000000);
+		PlayerPrefs.DeleteAll();
+		//PlayerPrefs.SetInt("score", 1000000000);
 		score = PlayerPrefs.GetInt("score");
 	
 	}

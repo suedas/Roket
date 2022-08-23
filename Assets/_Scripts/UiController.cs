@@ -155,10 +155,10 @@ public class UiController : MonoBehaviour
 	{
         if (GameManager.instance.score>=RoketManager.instance.gazPara)
         {
-			RoketManager.instance.maxgaz += 10;
+			RoketManager.instance.maxgaz += 10;//10
 			GameManager.instance.DecreaseScore(RoketManager.instance.gazPara);
 			RoketManager.instance.levelGaz = PlayerPrefs.GetInt("levelgaz") +1;
-			RoketManager.instance.gazPara =PlayerPrefs.GetInt("gazpara")+ PlayerPrefs.GetInt("gazpara")/2;
+			RoketManager.instance.gazPara = PlayerPrefs.GetInt("gazpara") + PlayerPrefs.GetInt("gazpara")/2;
 			GameManager.instance.scoreArtisMiktari = RoketManager.instance.gazPara;
 			slider.maxValue = RoketManager.instance.maxgaz;
 			slider.value = RoketManager.instance.maxgaz;
@@ -182,10 +182,10 @@ public class UiController : MonoBehaviour
     {
 		if (GameManager.instance.score >= RoketManager.instance.hizPara)
 		{
-			RoketManager.instance.hiz += 1;
+			RoketManager.instance.hiz += 1;//1
 			GameManager.instance.DecreaseScore(RoketManager.instance.hizPara);
 			RoketManager.instance.levelHiz = PlayerPrefs.GetInt("levelhiz") + 1;
-			RoketManager.instance.hizPara = PlayerPrefs.GetInt("hizpara") + PlayerPrefs.GetInt("hizpara")/2;
+			RoketManager.instance.hizPara = PlayerPrefs.GetInt("hizpara") +  PlayerPrefs.GetInt("hizpara")/2;
 
 
 			PlayerPrefs.SetFloat("hiz", RoketManager.instance.hiz);

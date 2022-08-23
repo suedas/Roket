@@ -51,10 +51,10 @@ public class RoketManager : MonoBehaviour
            
                 else if (gaz>maxgaz*8/10)
                 {
-                    hiz -= 0.3f;
+                    hiz -= 0.3f;//0.3f;
                 }
                 //UiController.instance.particleGas.SetActive(false);
-                gaz += 2;
+                gaz += 2; //  gaz += 2;
                 rb.velocity = new Vector3(0, hiz, 0);
                 target.GetComponent<Rigidbody>().velocity= new Vector3(target.transform.position.x, hiz,target.transform.position.z);
                  //yield return new WaitForEndOfFrame();
@@ -78,14 +78,12 @@ public class RoketManager : MonoBehaviour
             while (rb.velocity.y>=0)
             {
                 yield return new WaitForEndOfFrame();
-                if (rb.velocity.y<=0)
-                {
-                    Vector3 ts = new Vector3(-1.3f, distance.transform.position.y, 0);
-                    Instantiate(distanceImage, ts, Quaternion.identity,DistanceParent);
-                }
+              
                
             }
-           
+            Vector3 ts = new Vector3(-1.3f, distance.transform.position.y, 0);
+            Instantiate(distanceImage, ts, Quaternion.identity, DistanceParent);
+
             cb.enabled = false;
             yield return new WaitForSeconds(2f);
             UiController.instance.OpenWinPanel();
